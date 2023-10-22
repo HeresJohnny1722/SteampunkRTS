@@ -19,9 +19,9 @@ public class GameRTSController : MonoBehaviour
         {
             //left mouse button up
             Debug.Log(UtilsClass.GetMouseWorldPosition() + " " + startPosition);
-            Collider[] colldierArray =  Physics.OverlapBox(startPosition, UtilsClass.GetMouseWorldPosition());
+            Collider2D[] colldierArray = Physics2D.OverlapAreaAll(startPosition, UtilsClass.GetMouseWorldPosition());
             Debug.Log("#########");
-            foreach (Collider collider in colldierArray)
+            foreach (Collider2D collider in colldierArray)
             {
                 Debug.Log(collider);
             }
