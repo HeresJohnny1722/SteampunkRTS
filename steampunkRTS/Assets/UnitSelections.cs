@@ -17,6 +17,8 @@ public class UnitSelections : MonoBehaviour
     public LayerMask clickable;
     public LayerMask ground;
 
+    public float spacing = 1f;
+
     
 
     void Awake()
@@ -83,7 +85,21 @@ public class UnitSelections : MonoBehaviour
     {
         Debug.Log("move units");
 
-        List<Vector3> targetPositionList = GetPositionListAround(moveToPosition, 2f, 5);
+        int formationSize = (int)Mathf.CeilToInt(Mathf.Sqrt(unitsSelected.Count));
+        
+
+        List<Vector3> targetPositionList = new List<Vector3>();
+
+        for (int x = 0; x < formationSize; x++)
+        {
+            for (int z = 0; z < formationSize; z++)
+            {
+                Vector3 formationOffset = new Vector3(x * spacing, 0, z * spacing);
+                Vector3 targetPosition = moveToPosition + formationOffset;
+                targetPositionList.Add(targetPosition);
+            }
+        }
+
         int targetPositionListIndex = 0;
 
         foreach (var unit in unitsSelected)
@@ -91,27 +107,9 @@ public class UnitSelections : MonoBehaviour
             myAgent = unit.GetComponent<NavMeshAgent>();
             myAgent.SetDestination(targetPositionList[targetPositionListIndex]);
             targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
-
-            
         }
     }
-    private List<Vector3> GetPositionListAround(Vector3 startPosition, float distance, int positionCount)
-    {
-        List<Vector3> positionList = new List<Vector3>();
-        for (int i = 0; i < positionCount; i++)
-        {
-            float angle = i * (360f / positionCount);
-            Vector3 dir = ApplyRotationToVector(new Vector3(1, 0), angle);
-            Vector3 position = startPosition + dir * distance;
-            positionList.Add(position);
-        }
 
-        return positionList;
-    }
 
-    private Vector3 ApplyRotationToVector(Vector3 vec, float angle)
-    {
-        return Quaternion.Euler(0, 0, angle) * vec;
-    }
-   
+
 }
