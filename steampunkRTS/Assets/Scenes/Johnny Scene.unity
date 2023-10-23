@@ -243,7 +243,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 128
-  spacing: 1
+  spacing: 1.3
   groundMarker: {fileID: 1511691347}
 --- !u!1001 &163755771
 PrefabInstance:

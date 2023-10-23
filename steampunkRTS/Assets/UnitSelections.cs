@@ -20,6 +20,8 @@ public class UnitSelections : MonoBehaviour
     public float spacing = 1f;
     public GameObject groundMarker;
 
+    private GameObject leader;
+
 
     void Awake()
     {
@@ -33,6 +35,7 @@ public class UnitSelections : MonoBehaviour
         }
 
         myCam = Camera.main;
+        
     }
 
     public void ClickSelect(GameObject unitToAdd)
@@ -40,6 +43,8 @@ public class UnitSelections : MonoBehaviour
         DeselectAll();
         unitsSelected.Add(unitToAdd);
         unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+
+        
     }
 
     public void ShiftClickSelect(GameObject unitToAdd)
@@ -84,6 +89,8 @@ public class UnitSelections : MonoBehaviour
     public void moveUnits(Vector3 moveToPosition)
     {
         Debug.Log("move units");
+        leader = unitsSelected[0].gameObject;
+        Debug.Log(leader);
 
         if (unitsSelected.Count > 0)
         {
@@ -104,6 +111,7 @@ public class UnitSelections : MonoBehaviour
         {
             for (int z = 0; z < formationSize; z++)
             {
+                
                 Vector3 formationOffset = new Vector3(x * spacing, 0, z * spacing);
                 Vector3 targetPosition = moveToPosition + formationOffset;
                 targetPositionList.Add(targetPosition);
