@@ -94,25 +94,25 @@ public class UnitSelections : MonoBehaviour
 
         if (unitsSelected.Count > 0)
         {
-            
             groundMarker.transform.position = moveToPosition;
             groundMarker.SetActive(false);
-
             groundMarker.SetActive(true);
-
         }
 
         int formationSize = (int)Mathf.CeilToInt(Mathf.Sqrt(unitsSelected.Count));
-        
 
         List<Vector3> targetPositionList = new List<Vector3>();
+
+        // Calculate leader's forward vector
+        Vector3 leaderForward = leader.transform.forward;
 
         for (int x = 0; x < formationSize; x++)
         {
             for (int z = 0; z < formationSize; z++)
             {
-                
+                // Calculate formationOffset based on current unit's position within the formation
                 Vector3 formationOffset = new Vector3(x * spacing, 0, z * spacing);
+                formationOffset = Quaternion.Euler(0, leader.transform.eulerAngles.y, 0) * formationOffset;
                 Vector3 targetPosition = moveToPosition + formationOffset;
                 targetPositionList.Add(targetPosition);
             }
@@ -125,9 +125,9 @@ public class UnitSelections : MonoBehaviour
             myAgent = unit.GetComponent<NavMeshAgent>();
             myAgent.SetDestination(targetPositionList[targetPositionListIndex]);
             targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
-            
         }
     }
+
 
 
 
