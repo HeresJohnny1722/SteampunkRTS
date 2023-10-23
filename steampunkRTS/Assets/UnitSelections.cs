@@ -18,8 +18,8 @@ public class UnitSelections : MonoBehaviour
     public LayerMask ground;
 
     public float spacing = 1f;
+    public GameObject groundMarker;
 
-    
 
     void Awake()
     {
@@ -85,6 +85,16 @@ public class UnitSelections : MonoBehaviour
     {
         Debug.Log("move units");
 
+        if (unitsSelected.Count > 0)
+        {
+            
+            groundMarker.transform.position = moveToPosition;
+            groundMarker.SetActive(false);
+
+            groundMarker.SetActive(true);
+
+        }
+
         int formationSize = (int)Mathf.CeilToInt(Mathf.Sqrt(unitsSelected.Count));
         
 
@@ -107,6 +117,7 @@ public class UnitSelections : MonoBehaviour
             myAgent = unit.GetComponent<NavMeshAgent>();
             myAgent.SetDestination(targetPositionList[targetPositionListIndex]);
             targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
+            
         }
     }
 

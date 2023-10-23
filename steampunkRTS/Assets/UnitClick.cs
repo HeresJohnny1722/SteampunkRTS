@@ -60,11 +60,7 @@ public class UnitClick : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
             {
-                groundMarker.transform.position = hit.point;
-                groundMarker.SetActive(false);
-
-                groundMarker.SetActive(true);
-
+                
                 UnitSelections.Instance.moveUnits(hit.point);
             } else
             {
