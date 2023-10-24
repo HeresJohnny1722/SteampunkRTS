@@ -6,10 +6,9 @@ public class PlacementSystem : MonoBehaviour
 {
     [SerializeField]
     private GameObject mouseIndicator;
-    
-    public InputManager inputManager;
 
-    
+    [SerializeField]
+    private InputManager inputManager;
 
     private void Update()
     {
