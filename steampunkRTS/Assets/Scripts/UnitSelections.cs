@@ -49,7 +49,7 @@ public class UnitSelections : MonoBehaviour
 
     public void ShiftClickSelect(GameObject unitToAdd)
     {
-        if (!unitsSelected.Contains(unitToAdd))
+        if (!unitsSelected.Contains(unitToAdd) && (unitsSelected.Count < 9))
         {
             unitsSelected.Add(unitToAdd);
             unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
@@ -64,7 +64,7 @@ public class UnitSelections : MonoBehaviour
 
     public void DragSelect(GameObject unitToAdd)
     {
-        if (!unitsSelected.Contains(unitToAdd))
+        if (!unitsSelected.Contains(unitToAdd) && (unitsSelected.Count < 9))
         {
             unitsSelected.Add(unitToAdd);
             unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
@@ -89,24 +89,49 @@ public class UnitSelections : MonoBehaviour
     public void moveUnits(Vector3 moveToPosition)
     {
         Debug.Log("move units");
-        leader = unitsSelected[0].gameObject;
-        Debug.Log(leader);
+        
 
         if (unitsSelected.Count > 0)
         {
             groundMarker.transform.position = moveToPosition;
             groundMarker.SetActive(false);
             groundMarker.SetActive(true);
+
+            float spacing = 2f;
+
+            int formationSize = (int)Mathf.CeilToInt(Mathf.Sqrt(unitsSelected.Count));
+
+            List<Vector3> targetPositionList = new List<Vector3>();
+            int targetPositionListIndex = 1;
+
+            leader = unitsSelected[0].gameObject;
+            Debug.Log(leader);
+            leader.GetComponent<NavMeshAgent>().SetDestination(moveToPosition);
+
+            // Calculate leader's forward vector
+            Vector3 leaderForward = leader.transform.forward;
+
+
+            for (int x = -1; x <= 1; x++)
+            {
+                for (int z = -1; z <= 1; z++)
+                {
+                    Vector3 targetPosition = new Vector3(moveToPosition.x + x, 0, moveToPosition.z + z);
+                    targetPositionList.Add(targetPosition);
+                }
+            }
+
+            foreach (var unit in unitsSelected)
+            {
+                myAgent = unit.GetComponent<NavMeshAgent>();
+                myAgent.SetDestination(targetPositionList[targetPositionListIndex]);
+                targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
+            }
         }
 
-        int formationSize = (int)Mathf.CeilToInt(Mathf.Sqrt(unitsSelected.Count));
+        
 
-        List<Vector3> targetPositionList = new List<Vector3>();
-
-        // Calculate leader's forward vector
-        Vector3 leaderForward = leader.transform.forward;
-
-        for (int x = 0; x < formationSize; x++)
+        /*for (int x = 0; x < formationSize; x++)
         {
             for (int z = 0; z < formationSize; z++)
             {
@@ -116,16 +141,15 @@ public class UnitSelections : MonoBehaviour
                 Vector3 targetPosition = moveToPosition + formationOffset;
                 targetPositionList.Add(targetPosition);
             }
-        }
-
+        }*/
+    /*
         int targetPositionListIndex = 0;
 
         foreach (var unit in unitsSelected)
         {
-            myAgent = unit.GetComponent<NavMeshAgent>();
-            myAgent.SetDestination(targetPositionList[targetPositionListIndex]);
-            targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
+            
         }
+    */
     }
 
 
