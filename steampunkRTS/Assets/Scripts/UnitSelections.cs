@@ -105,7 +105,7 @@ public class UnitSelections : MonoBehaviour
             int targetPositionListIndex = 1;
 
             leader = unitsSelected[0].gameObject;
-            Debug.Log(leader);
+            //Debug.Log(leader);
             leader.GetComponent<NavMeshAgent>().SetDestination(moveToPosition);
 
             // Calculate leader's forward vector

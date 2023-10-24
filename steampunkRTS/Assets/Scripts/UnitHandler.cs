@@ -1,22 +1,34 @@
 using UnityEngine;
+using UnityEngine.AI;
 
-public class UnitSpawner : MonoBehaviour
+public class UnitHandler : MonoBehaviour
 {
-    public UnitSO unitData; // Reference to the ScriptableObject
+
+    //public UnitScriptableObject unitData;
+    [SerializeField]
+    private UnitScriptableObject worker, warrior, healer;
+
+    
 
     private void Start()
     {
-        if (unitData != null)
-        {
-            GameObject newUnit = Instantiate(unitData.unitPrefab, transform.position, Quaternion.identity);
-            GameObject two = Instantiate(unitData.unitPrefab, transform.position, Quaternion.identity);
-            GameObject three = Instantiate(unitData.unitPrefab, transform.position, Quaternion.identity);
-            GameObject four = Instantiate(unitData.unitPrefab, transform.position, Quaternion.identity);
-            // You might want to do more with the newUnit here, like setting its stats or behavior.
-        }
-        else
-        {
-            Debug.LogError("Unit Data ScriptableObject is not assigned.");
-        }
+        GameObject newUnit = Instantiate(worker.unitPrefab, transform.position, Quaternion.identity);
+        GameObject two = Instantiate(warrior.unitPrefab, transform.position, Quaternion.identity);
+        GameObject three = Instantiate(healer.unitPrefab, transform.position, Quaternion.identity);
+        SetUnitStats(newUnit);
+        SetUnitStats(two);
+        SetUnitStats(three);
+
     }
+
+    private void SetUnitStats(GameObject unitToSet)
+    {
+        NavMeshAgent unitAgent = unitToSet.GetComponent<NavMeshAgent>();
+        UnitScriptableObject UnitSO = unitToSet.GetComponent<Unit>().unit; ;
+        unitAgent.speed = UnitSO.movementSpeed;
+        unitAgent.angularSpeed = UnitSO.turnSpeed;
+    }
+
+
+
 }

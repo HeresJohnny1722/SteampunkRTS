@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Unit", menuName = "Create New Unit")]
+[CreateAssetMenu(fileName = "New Unit", menuName = "New Game/Unit")]
 
-public class UnitSO : ScriptableObject
+public class UnitScriptableObject : ScriptableObject
 {
     public enum unitType
     {
@@ -13,18 +13,19 @@ public class UnitSO : ScriptableObject
         Healer,
     };
 
-    
-    public bool isUnit;
-
+    [Space(15)]
+    [Header("Unit Settings")]
     public unitType type;
 
-    public string unitName;
+    public string name;
 
     public GameObject unitPrefab;
 
+    [Header("Unit Stats")]
     public int cost;
     public int attack;
     public int health;
-    public int armor;
-    
+    public int atkRange;
+    public int movementSpeed;
+    public int turnSpeed;
 }

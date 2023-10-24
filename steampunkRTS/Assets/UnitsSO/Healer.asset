@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e71ee3bbc2e74adf802e58033770309, type: 3}
-  m_Name: BasicGunnerUnit
+  m_Script: {fileID: 11500000, guid: 2e4ac960373d04ef4b3123c469f1ffcc, type: 3}
+  m_Name: Healer
   m_EditorClassIdentifier: 
-  isUnit: 1
-  type: 1
-  unitName: BasicGunner
-  unitPrefab: {fileID: 5574108335983003584, guid: 0bd9ef20049c24dd2a2aa45503f5506c,
+  type: 2
+  name: Healer
+  unitPrefab: {fileID: 5574108335983003584, guid: b22ad62df8c74480297aa5a55b2f6247,
     type: 3}
-  cost: 50
-  attack: 12
-  health: 25
-  armor: 50
+  cost: 5
+  attack: 5
+  health: 5
+  atkRange: 5
+  movementSpeed: 5
+  turnSpeed: 5

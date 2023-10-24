@@ -206,7 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9512f5a78397b418797c0e3e3e46c879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitData: {fileID: 11400000, guid: ab2ae67471add49d89d50007d35a920c, type: 2}
+  worker: {fileID: 11400000, guid: 43c975436f79e44f89d903434dca9008, type: 2}
+  warrior: {fileID: 11400000, guid: 17792ca9130c742b99e618ee7a60a085, type: 2}
+  healer: {fileID: 11400000, guid: 951fa5f6bc1f047969c9db3985cf3e22, type: 2}
 --- !u!4 &409195920
 Transform:
   m_ObjectHideFlags: 0

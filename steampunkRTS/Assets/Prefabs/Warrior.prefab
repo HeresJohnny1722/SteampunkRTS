@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 8417551832449885630}
   - component: {fileID: 7423250226629375391}
   m_Layer: 8
-  m_Name: Unit
+  m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0c01b92721446b99bef26381200b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unit: {fileID: 11400000, guid: 17792ca9130c742b99e618ee7a60a085, type: 2}
 --- !u!1 &7797122554217795504
 GameObject:
   m_ObjectHideFlags: 0
