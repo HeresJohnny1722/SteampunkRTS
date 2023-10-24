@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingSystem : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     [SerializeField]
     private Camera sceneCamera;
