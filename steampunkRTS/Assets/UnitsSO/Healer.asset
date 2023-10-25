@@ -20,5 +20,5 @@ MonoBehaviour:
   attack: 5
   health: 5
   atkRange: 5
-  movementSpeed: 5
-  turnSpeed: 5
+  movementSpeed: 2
+  turnSpeed: 100
