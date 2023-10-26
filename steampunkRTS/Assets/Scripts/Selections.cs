@@ -56,18 +56,21 @@ public class Selections : MonoBehaviour
         unitsSelected.Add(unitToAdd);
         unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
 
+        actionFrame.BarracksMenuClose();
 
     }
 
     public void ClickSelectBuilding(Transform buildingToSelect)
     {
+        actionFrame.BarracksMenuClose();
         DeselectAll();
         Debug.Log(buildingToSelect.name);
         selectedBuilding = buildingToSelect;
         selectedBuilding.GetChild(0).gameObject.SetActive(true);
         //Open up a training/reserch menu/ just some kind of UI
         //ActionFrame.instance.SetActionButtons();
-        actionFrame.SetActionButtons();
+        actionFrame.BarracksMenuOpen();
+        
 
         //unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
 
@@ -78,6 +81,7 @@ public class Selections : MonoBehaviour
     {
         if (!unitsSelected.Contains(unitToAdd) && (unitsSelected.Count < 9))
         {
+            actionFrame.BarracksMenuClose();
             unitsSelected.Add(unitToAdd);
             unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
         }
@@ -93,6 +97,7 @@ public class Selections : MonoBehaviour
     {
         if (!unitsSelected.Contains(unitToAdd) && (unitsSelected.Count < 9))
         {
+            actionFrame.BarracksMenuClose();
             unitsSelected.Add(unitToAdd);
             unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
         }
@@ -100,8 +105,8 @@ public class Selections : MonoBehaviour
 
     public void DeselectAll()
     {
-        
-        
+        actionFrame.BarracksMenuClose();
+
 
         foreach (var unit in unitsSelected)
         {

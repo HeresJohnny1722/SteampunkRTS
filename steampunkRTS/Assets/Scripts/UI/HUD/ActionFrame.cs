@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ActionFrame : MonoBehaviour
 {
     public GameObject BarracksTrainingMenu;
+    public Transform spawnTransform;
 
     [SerializeField]
     private List<UnitScriptableObject> unitsToTrain = new List<UnitScriptableObject>();
@@ -14,24 +15,49 @@ public class ActionFrame : MonoBehaviour
     [SerializeField] private Transform layoutGroup = null;
     private List<Button> buttonsInstantiated = new List<Button>();
 
-    
-
-    public void SetActionButtons()
+    private void Start()
     {
-        Debug.Log("BUILDING TRAINING MENU");
-        BarracksTrainingMenu.gameObject.SetActive(true);
 
-        /*
         int unitIndex = 0;
 
         foreach (UnitScriptableObject unit in unitsToTrain)
         {
             Button btn = Instantiate(buttonPrefabs[unitIndex], layoutGroup);
+            buttonsInstantiated.Add(btn);
             btn.name = unit.name;
             Debug.Log(btn.name);
             unitIndex++;
         }
-        */
+
+        /*foreach (Button btn in buttonsInstantiated)
+        {
+            buttonsInstantiated.Remove(btn);
+            Destroy(btn);
+        }*/
+
+
+    }
+
+    public void spawnTroop(UnitScriptableObject unit)
+    {
+
+        GameObject troop = Instantiate(unit.unitPrefab, transform.position, Quaternion.identity);
+    }
+
+    public void BarracksMenuClose()
+    {
+        BarracksTrainingMenu.gameObject.SetActive(false);
+
+    } 
+
+    public void BarracksMenuOpen()
+    {
+        Debug.Log("BUILDING TRAINING MENU");
+        BarracksTrainingMenu.gameObject.SetActive(true);
+
+        
+        
+        
 
         /*if (actions.basicUnits.Length > 0)
         {
@@ -58,10 +84,6 @@ public class ActionFrame : MonoBehaviour
 
     public void ClearActions()
     {
-        foreach (Button btn in buttonsInstantiated)
-        {
-            buttonsInstantiated.Remove(btn);
-            Destroy(btn);
-        }
+        
     }
 }

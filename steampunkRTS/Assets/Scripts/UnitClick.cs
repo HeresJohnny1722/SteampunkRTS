@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,10 +21,15 @@ using UnityEngine;
             myCam = Camera.main;
         }
 
+    private bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
+    }
+
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !IsMouseOverUI())
             {
 
                 RaycastHit hit;
@@ -66,7 +72,7 @@ using UnityEngine;
 
             }
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && !IsMouseOverUI())
             {
                 RaycastHit hit;
                 Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
