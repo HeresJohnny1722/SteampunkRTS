@@ -2,73 +2,86 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitClick : MonoBehaviour
-{
-
-    private Camera myCam;
-
-    public LayerMask clickable;
-    public LayerMask ground;
-
-    public GameObject groundMarker;
-
-    // Start is called before the first frame update
-    void Start()
+    public class UnitClick : MonoBehaviour
     {
-        myCam = Camera.main;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+        private Camera myCam;
+
+        public LayerMask friendlyUnit;
+        public LayerMask enemyUnit;
+        public LayerMask Building;
+        public LayerMask ground;
+
+        public GameObject groundMarker;
+
+        // Start is called before the first frame update
+        void Start()
         {
+            myCam = Camera.main;
+        }
 
-            RaycastHit hit;
-            Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, clickable))
+        // Update is called once per frame
+        void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
             {
 
-                if (Input.GetKey(KeyCode.LeftShift))
+                RaycastHit hit;
+                Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, friendlyUnit))
                 {
 
-                    UnitSelections.Instance.ShiftClickSelect(hit.collider.gameObject);
+                    if (Input.GetKey(KeyCode.LeftShift))
+                    {
 
-                } else
+                        Selections.Instance.ShiftClickSelect(hit.collider.gameObject);
+
+                    }
+                    else
+                    {
+
+                        Selections.Instance.ClickSelectUnit(hit.collider.gameObject);
+
+                    }
+
+                } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, Building))
                 {
+                //Building stuff
+                
+                Selections.Instance.ClickSelectBuilding(hit.transform);
 
-                    UnitSelections.Instance.ClickSelect(hit.collider.gameObject);
+            }
+
+
+                else
+                {
+                    if (!Input.GetKey(KeyCode.LeftShift))
+                    {
+                        Selections.Instance.DeselectAll();
+                    }
 
                 }
 
-            } else
+            }
+
+            if (Input.GetMouseButtonDown(1))
             {
-                if (!Input.GetKey(KeyCode.LeftShift))
+                RaycastHit hit;
+                Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
                 {
-                    UnitSelections.Instance.DeselectAll();
+
+                    Selections.Instance.moveUnits(hit.point);
                 }
-                
+                else
+                {
+                    //attak I think
+                }
+
+
+
             }
-
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            RaycastHit hit;
-            Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
-            {
-                
-                UnitSelections.Instance.moveUnits(hit.point);
-            } else
-            {
-                //attak I think
-            }
-
-            
-            
         }
     }
-}
