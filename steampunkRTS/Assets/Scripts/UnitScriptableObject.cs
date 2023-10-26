@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Unit", menuName = "New Game/Unit")]
+[CreateAssetMenu(fileName = "Unit", menuName = "New Unit/Basic")]
 
 public class UnitScriptableObject : ScriptableObject
 {
@@ -17,7 +17,7 @@ public class UnitScriptableObject : ScriptableObject
     [Header("Unit Settings")]
     public unitType type;
 
-    public string name;
+    public new string name;
 
     public GameObject unitPrefab;
 

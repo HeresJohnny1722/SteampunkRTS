@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1873466348540962284}
   - component: {fileID: 6708686242816393947}
   - component: {fileID: 1881278294257841102}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 2092813590847857994}
   - component: {fileID: 8417551832449885630}
   - component: {fileID: 7423250226629375391}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 3626039221921215872}
   - component: {fileID: 1013348463326893050}
   - component: {fileID: 6196965911390123932}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

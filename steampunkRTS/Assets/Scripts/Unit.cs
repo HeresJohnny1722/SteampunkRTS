@@ -8,17 +8,35 @@ public class Unit : MonoBehaviour
     private NavMeshAgent myAgent;
     public UnitScriptableObject unit;
 
-    // Start is called before the first frame update
+    private UnitScriptableObject.unitType unitType;
+
+    private string name;
+    private int cost, attack, health, atkRange, movementSpeed, turnSpeed;
+    
+
+    
     void Start()
     {
-        
-        UnitSelections.Instance.unitList.Add(this.gameObject);
-        
-        
+        SetStats();
+        Selections.Instance.unitList.Add(this.gameObject);
+
+
     }
 
     void OnDestroy()
     {
-        UnitSelections.Instance.unitList.Remove(this.gameObject);
+        Selections.Instance.unitList.Remove(this.gameObject);
+    }
+
+    private void SetStats()
+    {
+        NavMeshAgent unitAgent = gameObject.GetComponent<NavMeshAgent>();
+        unitAgent.speed = unit.movementSpeed;
+        unitAgent.angularSpeed = unit.turnSpeed;
+        cost = unit.cost;
+        attack = unit.attack;
+        health = unit.health;
+        atkRange = unit.atkRange;
+        name = unit.name;
     }
 }
