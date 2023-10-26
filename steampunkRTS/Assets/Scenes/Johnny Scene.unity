@@ -1793,6 +1793,18 @@ PrefabInstance:
       propertyPath: BarracksTrainingMenu
       value: 
       objectReference: {fileID: 2074418002}
+    - target: {fileID: 3593922887867504592, guid: 4036da622f31b45d69d5f065291acd47,
+        type: 3}
+      propertyPath: buttonPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 7645180128518220153, guid: 17f5cd0da584a41c786ca18e717f7d7a,
+        type: 3}
+    - target: {fileID: 3593922887867504592, guid: 4036da622f31b45d69d5f065291acd47,
+        type: 3}
+      propertyPath: buttonPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 7645180128518220153, guid: 2a2bcdd0bffd4449d8a5d1161c5ec698,
+        type: 3}
     - target: {fileID: 4941974779474162959, guid: 4036da622f31b45d69d5f065291acd47,
         type: 3}
       propertyPath: m_LocalPosition.x

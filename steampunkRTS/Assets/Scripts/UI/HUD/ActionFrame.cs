@@ -17,7 +17,7 @@ public class ActionFrame : MonoBehaviour
 
     private void Start()
     {
-
+        
         int unitIndex = 0;
 
         foreach (UnitScriptableObject unit in unitsToTrain)
@@ -41,7 +41,10 @@ public class ActionFrame : MonoBehaviour
     public void spawnTroop(UnitScriptableObject unit)
     {
 
-        GameObject troop = Instantiate(unit.unitPrefab, transform.position, Quaternion.identity);
+        Vector3 targetPosition = new Vector3(0, 2, 0);
+        GameObject troop = Instantiate(unit.unitPrefab, targetPosition, Quaternion.identity);
+        Debug.Log(targetPosition);
+
     }
 
     public void BarracksMenuClose()

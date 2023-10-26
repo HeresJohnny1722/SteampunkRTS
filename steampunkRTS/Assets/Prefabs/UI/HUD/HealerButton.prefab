@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3876928183573975524}
   - component: {fileID: 7645180128518220153}
   m_Layer: 5
-  m_Name: WarriorButton
+  m_Name: HealerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.11764705, g: 0.8111359, b: 1, a: 1}
+  m_Color: {r: 0.56172067, g: 1, b: 0.48627448, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -126,7 +126,7 @@ MonoBehaviour:
         m_MethodName: spawnTroop
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 17792ca9130c742b99e618ee7a60a085,
+          m_ObjectArgument: {fileID: 11400000, guid: 951fa5f6bc1f047969c9db3985cf3e22,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnitScriptableObject, Assembly-CSharp
           m_IntArgument: 0
