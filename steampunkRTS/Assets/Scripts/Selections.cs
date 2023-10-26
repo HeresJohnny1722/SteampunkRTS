@@ -14,6 +14,8 @@ public class Selections : MonoBehaviour
     public List<GameObject> buildingsList = new List<GameObject>();
     public Transform selectedBuilding = null;
 
+    private ActionFrame actionFrame;
+    public GameObject ActionFrameGameobject;
 
     private NavMeshAgent myAgent;
     private Camera myCam;
@@ -31,7 +33,7 @@ public class Selections : MonoBehaviour
 
     void Awake()
     {
-
+        actionFrame = ActionFrameGameobject.GetComponent<ActionFrame>();
 
         if (_instance != null && _instance != this)
         {
@@ -64,7 +66,9 @@ public class Selections : MonoBehaviour
         selectedBuilding = buildingToSelect;
         selectedBuilding.GetChild(0).gameObject.SetActive(true);
         //Open up a training/reserch menu/ just some kind of UI
-        
+        //ActionFrame.instance.SetActionButtons();
+        actionFrame.SetActionButtons();
+
         //unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
 
 

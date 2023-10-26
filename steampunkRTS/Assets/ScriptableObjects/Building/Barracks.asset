@@ -16,7 +16,8 @@ MonoBehaviour:
   name: 
   buildingPrefab: {fileID: 6954639544148333482, guid: 257f1f9e188bd4ac6bc91ddf07cd9b56,
     type: 3}
-  unit: 0
+  unit:
+  - {fileID: 11400000, guid: 17792ca9130c742b99e618ee7a60a085, type: 2}
   health: 34
   armor: 0
   attack: 0

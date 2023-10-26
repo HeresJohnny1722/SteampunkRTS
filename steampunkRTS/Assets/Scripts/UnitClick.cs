@@ -50,6 +50,7 @@ using UnityEngine;
                 //Building stuff
                 
                 Selections.Instance.ClickSelectBuilding(hit.transform);
+                //ActionFrame.instance.SetActionButtons();
 
             }
 

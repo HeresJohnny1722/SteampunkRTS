@@ -11,10 +11,7 @@ public class BasicBuildingSO : ScriptableObject
         Barracks
     }
 
-    public enum troopType
-    {
-
-    }
+    
 
     [Space(15)]
     [Header("Building Settings")]
@@ -22,7 +19,7 @@ public class BasicBuildingSO : ScriptableObject
     public buildingType type;
     public new string name;
     public GameObject buildingPrefab;
-    public UnitScriptableObject.unitType unit;
+    public UnitScriptableObject[] unit = new UnitScriptableObject[0];
 
     [Space(15)]
     [Header("Building Base Stats")]
