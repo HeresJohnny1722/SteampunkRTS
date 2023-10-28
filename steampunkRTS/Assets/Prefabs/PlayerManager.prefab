@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4438589572606629448}
-  - component: {fileID: 2756296370046436203}
+  - component: {fileID: 2176101572201717678}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2756296370046436203
+--- !u!114 &2176101572201717678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,6 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470a4bfda012b48fe844ec0332f91137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldAmount: 1000
-  woodAmount: 200
-  copperAmount: 300
+  myText: {fileID: 6227286924853384473, guid: 2a3c67db9a9e54804b185c045a618056, type: 3}

@@ -22,7 +22,10 @@ public class UnitScriptableObject : ScriptableObject
     public GameObject unitPrefab;
 
     [Header("Unit Stats")]
+    public int trainingTime;
     public int cost;
+    public int copper;
+    public int wood;
     public int attack;
     public int health;
     public int atkRange;

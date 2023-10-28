@@ -16,7 +16,10 @@ MonoBehaviour:
   name: Worker
   unitPrefab: {fileID: 5574108335983003584, guid: f0f8ef5106dfd4b748b4ee2926ed4668,
     type: 3}
+  trainingTime: 6
   cost: 10
+  copper: 10
+  wood: 10
   attack: 10
   health: 10
   atkRange: 10

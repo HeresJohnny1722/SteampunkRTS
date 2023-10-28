@@ -16,7 +16,10 @@ MonoBehaviour:
   name: Warrior
   unitPrefab: {fileID: 5574108335983003584, guid: 0bd9ef20049c24dd2a2aa45503f5506c,
     type: 3}
+  trainingTime: 4
   cost: 15
+  copper: 15
+  wood: 15
   attack: 15
   health: 15
   atkRange: 15

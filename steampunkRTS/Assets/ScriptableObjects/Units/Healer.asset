@@ -16,7 +16,10 @@ MonoBehaviour:
   name: Healer
   unitPrefab: {fileID: 5574108335983003584, guid: b22ad62df8c74480297aa5a55b2f6247,
     type: 3}
+  trainingTime: 2
   cost: 5
+  copper: 5
+  wood: 5
   attack: 5
   health: 5
   atkRange: 5
