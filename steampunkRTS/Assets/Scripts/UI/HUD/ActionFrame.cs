@@ -7,6 +7,7 @@ public class ActionFrame : MonoBehaviour
 {
     public GameObject BarracksTrainingMenu;
     public Transform spawnTransform;
+    public PlayerManager playerManager;
 
     [SerializeField]
     private List<UnitScriptableObject> unitsToTrain = new List<UnitScriptableObject>();
@@ -46,6 +47,8 @@ public class ActionFrame : MonoBehaviour
         Debug.Log(targetPosition);
 
     }
+
+    
 
     public void BarracksMenuClose()
     {

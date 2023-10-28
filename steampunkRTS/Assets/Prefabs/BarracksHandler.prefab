@@ -45,13 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BarracksTrainingMenu: {fileID: 0}
-  spawnTransform: {fileID: 0}
+  spawnTransform: {fileID: 4941974779474162959}
+  playerManager: {fileID: 0}
   unitsToTrain:
   - {fileID: 11400000, guid: 951fa5f6bc1f047969c9db3985cf3e22, type: 2}
   - {fileID: 11400000, guid: 17792ca9130c742b99e618ee7a60a085, type: 2}
   - {fileID: 11400000, guid: 43c975436f79e44f89d903434dca9008, type: 2}
   buttonPrefabs:
   - {fileID: 7645180128518220153, guid: 53d9119e141514ee0955c12c0f8ba99d, type: 3}
-  - {fileID: 7645180128518220153, guid: 53d9119e141514ee0955c12c0f8ba99d, type: 3}
-  - {fileID: 7645180128518220153, guid: 53d9119e141514ee0955c12c0f8ba99d, type: 3}
+  - {fileID: 7645180128518220153, guid: 17f5cd0da584a41c786ca18e717f7d7a, type: 3}
+  - {fileID: 7645180128518220153, guid: 2a2bcdd0bffd4449d8a5d1161c5ec698, type: 3}
   layoutGroup: {fileID: 0}
