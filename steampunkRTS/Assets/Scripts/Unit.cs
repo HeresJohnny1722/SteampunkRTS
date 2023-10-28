@@ -10,8 +10,8 @@ public class Unit : MonoBehaviour
 
     private UnitScriptableObject.unitType unitType;
 
-    private string name;
-    private float cost, attack, health, atkRange, movementSpeed, turnSpeed;
+    public string name;
+    public float cost, attack, health, atkRange, movementSpeed, turnSpeed;
     
 
     

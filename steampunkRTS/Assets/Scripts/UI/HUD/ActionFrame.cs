@@ -45,6 +45,7 @@ public class ActionFrame : MonoBehaviour
         Vector3 targetPosition = new Vector3(0, 2, 0);
         GameObject troop = Instantiate(unit.unitPrefab, targetPosition, Quaternion.identity);
         Debug.Log(targetPosition);
+        //playerManager.UpdateStats(unit);
 
     }
 
