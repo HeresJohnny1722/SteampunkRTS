@@ -5,10 +5,14 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform cameraTransform;
+    public float screenEdgeWidth = 10f;
 
     public float normalSpeed;
     public float fastSpeed;
-    public float movementSpeed;
+    public float normalKeyboardSpeed;
+    public float fastKeyboardSpeed;
+    public float movementMouseSpeed;
+    public float movementKeyboardSpeed;
     public float movementTime;
     public float rotationAmount;
     public Vector3 zoomAmount;
@@ -39,81 +43,77 @@ public class CameraController : MonoBehaviour
 
     void HandleMouseInput()
     {
-        if(Input.mouseScrollDelta.y != 0)
+        if (Input.mouseScrollDelta.y != 0)
         {
             newZoom += Input.mouseScrollDelta.y * zoomAmount;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        // Get the mouse position
+        Vector3 mousePosition = Input.mousePosition;
+
+        // Initialize a movement vector
+        Vector3 moveDirection = Vector3.zero;
+
+        // Check if the mouse is near the screen edges
+        if (mousePosition.x < screenEdgeWidth)
         {
-            Plane plane = new Plane(Vector3.up, Vector3.zero);
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            float entry;
-
-            if(plane.Raycast(ray, out entry))
-            {
-                dragStartPosition = ray.GetPoint(entry);
-            }
+            moveDirection += -transform.right;
         }
-        if (Input.GetMouseButton(0))
+        else if (mousePosition.x > Screen.width - screenEdgeWidth)
         {
-            Plane plane = new Plane(Vector3.up, Vector3.zero);
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            float entry;
-
-            if (plane.Raycast(ray, out entry))
-            {
-                dragCurrentPosition = ray.GetPoint(entry);
-
-                newPosition = transform.position + dragStartPosition - dragCurrentPosition;
-            }
+            moveDirection += transform.right;
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (mousePosition.y < screenEdgeWidth)
         {
-            rotateStartPosition = Input.mousePosition;
+            moveDirection += -transform.forward;
         }
-        if (Input.GetMouseButton(1))
+        else if (mousePosition.y > Screen.height - screenEdgeWidth)
         {
-            rotateCurrentPosition = Input.mousePosition;
-
-            Vector3 difference = rotateStartPosition - rotateCurrentPosition;
-
-            rotateStartPosition = rotateCurrentPosition;
-
-            newRotation *= Quaternion.Euler(Vector3.up * (-difference.x / 5f));
+            moveDirection += transform.forward;
         }
+
+        // Apply camera movement based on the mouse position
+        newPosition += moveDirection.normalized * movementMouseSpeed * Time.deltaTime;
+
+        // Ensure the camera doesn't move too far away
+
+        // ... Your existing camera bounds logic ...
+
+        // Update the camera position and rotation
+        transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * movementTime);
+        cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, newZoom, Time.deltaTime * movementTime);
     }
 
     void HandleMovementInput()
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            movementSpeed = fastSpeed;
+            movementMouseSpeed = fastSpeed;
+            movementKeyboardSpeed = fastKeyboardSpeed;
+
         }
         else
         {
-            movementSpeed = normalSpeed;
+            movementMouseSpeed = normalSpeed;
+            movementKeyboardSpeed = normalKeyboardSpeed;
         }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            newPosition += transform.forward * movementSpeed;
+            newPosition += transform.forward * movementKeyboardSpeed;
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            newPosition += transform.forward * -movementSpeed;
+            newPosition += transform.forward * -movementKeyboardSpeed;
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            newPosition += transform.right * movementSpeed;
+            newPosition += transform.right * movementKeyboardSpeed;
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            newPosition += transform.right * -movementSpeed;
+            newPosition += transform.right * -movementKeyboardSpeed;
 
         }
 

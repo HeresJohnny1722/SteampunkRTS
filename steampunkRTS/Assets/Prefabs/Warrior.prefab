@@ -137,7 +137,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3478121153264777048}
@@ -252,6 +252,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: 17792ca9130c742b99e618ee7a60a085, type: 2}
+  name: 
+  cost: 0
+  attack: 0
+  health: 0
+  atkRange: 0
+  movementSpeed: 0
+  turnSpeed: 0
 --- !u!1 &7797122554217795504
 GameObject:
   m_ObjectHideFlags: 0

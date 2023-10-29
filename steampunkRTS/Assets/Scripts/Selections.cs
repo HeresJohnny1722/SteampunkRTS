@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class Selections : MonoBehaviour
 {
+    
+
     public float angleOffset = 45f;
 
     public List<GameObject> unitList = new List<GameObject>();
@@ -57,6 +59,7 @@ public class Selections : MonoBehaviour
         DeselectAll();
         unitsSelected.Add(unitToAdd);
         unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+     
 
         actionFrame.BarracksMenuClose();
 
@@ -68,7 +71,15 @@ public class Selections : MonoBehaviour
         DeselectAll();
         Debug.Log(buildingToSelect.name);
         selectedBuilding = buildingToSelect;
-        selectedBuilding.GetChild(0).gameObject.SetActive(true);
+        selectedBuilding.GetChild(3).gameObject.SetActive(false);
+        selectedBuilding.GetChild(4).gameObject.SetActive(true);
+        selectedBuilding.GetChild(2).gameObject.SetActive(true);
+
+        //selectedBuilding.GetChild(0).gameObject.SetActive(true);
+        //change material to white outline
+
+
+        //selectedBuilding.GetChild(2).gameObject.SetActive(true);
         //Open up a training/reserch menu/ just some kind of UI
         //ActionFrame.instance.SetActionButtons();
         actionFrame.BarracksMenuOpen();
@@ -118,19 +129,20 @@ public class Selections : MonoBehaviour
 
         if (selectedBuilding)
         {
-            selectedBuilding.GetChild(0).gameObject.SetActive(false);
+            selectedBuilding.GetChild(3).gameObject.SetActive(true);
+            selectedBuilding.GetChild(4).gameObject.SetActive(false);
+            selectedBuilding.GetChild(2).gameObject.SetActive(false);
             selectedBuilding = null;
         }
         
     }
 
+    
+
 
         
 
-        public void Deselect(GameObject unitToDeselect)
-        {
-
-        }
+        
 
     public float offsetDistance = 2f;
 

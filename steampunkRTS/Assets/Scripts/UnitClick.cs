@@ -77,15 +77,24 @@ using UnityEngine;
                 RaycastHit hit;
                 Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+            {
+                    if (Selections.Instance.selectedBuilding != null)
                 {
-
+                    //Be able to move the spawn point
+                    Selections.Instance.selectedBuilding.GetChild(2).gameObject.SetActive(true);
+                    Selections.Instance.selectedBuilding.GetChild(2).transform.position = hit.point;
+                } else
+                {
                     Selections.Instance.moveUnits(hit.point);
                 }
-                else
+                    
+             }
+                else 
                 {
-                    //attak I think
+                    
                 }
+                //attack I think
 
 
 

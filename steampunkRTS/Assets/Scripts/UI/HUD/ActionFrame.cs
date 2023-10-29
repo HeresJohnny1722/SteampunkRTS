@@ -3,12 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class ActionFrame : MonoBehaviour
 {
+    public TextMeshProUGUI timeLeftText;
+    public TextMeshProUGUI queueSizeText;
+    public TextMeshProUGUI unitNameText;
+
     public GameObject BarracksTrainingMenu;
     public Transform spawnTransform;
     public PlayerManager playerManager;
+    public Selections selections;
+
+
+    
+    private Transform unitSpawnPoint;
+    private Transform unitMovePoint;
+
 
     [SerializeField]
     private Button warriorButton, healerButton, workerButton;
@@ -23,56 +35,100 @@ public class ActionFrame : MonoBehaviour
     private void Start()
     {
 
+        timeLeftText.text = "Training Time: 0s";
+        queueSizeText.text = "Queue Size: 0";
+
         warriorButton.gameObject.SetActive(true);
-        //int unitIndex = 0;
-
-        /*foreach (UnitScriptableObject unit in unitsToTrain)
-        {
-            Button btn = Instantiate(buttonPrefabs[unitIndex], layoutGroup);
-            buttonsInstantiated.Add(btn);
-            btn.name = unit.name;
-            Debug.Log(btn.name);
-            unitIndex++;
-        }*/
-
-        /*foreach (Button btn in buttonsInstantiated)
-        {
-            buttonsInstantiated.Remove(btn);
-            Destroy(btn);
-        }*/
+        
 
 
     }
+
+    private Queue<UnitScriptableObject> troopQueue = new Queue<UnitScriptableObject>();
+    private bool isTraining = false;
 
     public void spawnTroop(UnitScriptableObject unit)
     {
-        if (playerManager.goldAmount - unit.cost >= 0)
+        //unitSpawnPoint = selections.selectedBuilding.transform;
+        unitSpawnPoint = selections.selectedBuilding.GetChild(1).transform;
+        unitMovePoint = selections.selectedBuilding.GetChild(2).transform;
+
+        
+
+        if ((playerManager.goldAmount - unit.cost >= 0) && (playerManager.woodAmount - unit.wood >= 0) && (playerManager.copperAmount - unit.copper >= 0))
         {
-            Vector3 targetPosition = new Vector3(0, 2, 0);
-            GameObject troop = Instantiate(unit.unitPrefab, targetPosition, Quaternion.identity);
-            Debug.Log(targetPosition);
-            playerManager.ChangeText(unit);
+            troopQueue.Enqueue(unit);
+            UpdateQueueSizeText();
+            playerManager.ChangeText(unit);// Update the queue size text when a new troop is enqueued
+
+            UpdateQueueSizeText();
+            if (!isTraining)
+            {
+                UpdateQueueSizeText();
+                StartCoroutine(TrainTroops());
+            }
         }
-        /*else
-        {
-            Debug.Log("not enough gold");
-            /*if (unit.name == "Warrior")
-            {
-                warriorButton.image.color = Color.black;
-            } else if(unit.name == "Healer")
-            {
-                healerButton.image.color = Color.black;
-            } else if (unit.name == "Worker")
-            {
-                workerButton.image.color = Color.black;
-            }*/
-
-            //Set the button to dark
-            //Also need somewhere when collecting resources, to check if the button should update to show that you
-            //can now make the troop
-        //}
-
     }
+
+    private IEnumerator TrainTroops()
+    {
+        UpdateQueueSizeText();
+        isTraining = true;
+
+        while (troopQueue.Count > 0)
+        {
+            UpdateQueueSizeText();
+            UnitScriptableObject unit = troopQueue.Dequeue();
+
+            
+                //and other materials too
+
+                unitNameText.text = unit.name;
+                Debug.Log("Training " + unit.name);
+                
+
+                float trainingTime = unit.trainingTime;
+                while (trainingTime > 0)
+                {
+                    // Update time left text
+                    timeLeftText.text = "Training Time: " + trainingTime.ToString("0") + "s";
+                    yield return new WaitForSeconds(1);
+                    trainingTime -= 1;
+                UpdateQueueSizeText();
+            }
+
+            
+            
+                //Vector3 targetPosition = new Vector3(0, 2, 0);
+                GameObject troop = Instantiate(unit.unitPrefab, unitSpawnPoint.position, Quaternion.identity);
+            NavMeshAgent unitAgent = troop.GetComponent<NavMeshAgent>();
+            //unitAgent.SetDestination(unitAnimationPoint.position);
+            //StartCoroutine(WaitForOneSecond());
+            
+            unitAgent.SetDestination(unitMovePoint.position);
+                
+
+                // Reset time left text and unit name
+                timeLeftText.text = "Training Time: 0s";
+                unitNameText.text = "No unit training";
+
+                UpdateQueueSizeText(); // Update the queue size text when a troop is done training
+            }
+        
+
+        isTraining = false;
+        UpdateQueueSizeText(); // Update the queue size text when all troops are done training
+    }
+
+    private void UpdateQueueSizeText()
+    {
+        queueSizeText.text = "Queue Size: " + troopQueue.Count;
+    }
+
+    
+
+
+
 
 
 
@@ -81,6 +137,7 @@ public class ActionFrame : MonoBehaviour
         BarracksTrainingMenu.gameObject.SetActive(false);
 
     }
+
 
     public void BarracksMenuOpen()
     {
