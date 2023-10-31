@@ -28,9 +28,9 @@ public class PlayerManager : MonoBehaviour
         goldAmount = goldAmount;
         woodAmount = woodAmount;
         copperAmount = copperAmount;
-        goldAmountText.text = goldAmount.ToString(); //Based on selected difficulty
-        woodAmountText.text = woodAmount.ToString();
-        copperAmountText.text = copperAmount.ToString();
+        goldAmountText.text = "Gold: " + goldAmount.ToString(); //Based on selected difficulty
+        woodAmountText.text = "Wood: " + woodAmount.ToString();
+        copperAmountText.text = "Copper: " + copperAmount.ToString();
     }
 
     public void ChangeText(UnitScriptableObject unit)
@@ -38,13 +38,13 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Trying to change text");
         float cost = unit.cost;
         goldAmount -= cost;
-        goldAmountText.text = goldAmount.ToString();
+        goldAmountText.text = "Gold: " + goldAmount.ToString();
         float copper = unit.copper;
         copperAmount -= copper;
-        copperAmountText.text = copperAmount.ToString();
+        copperAmountText.text = "Copper: " + copperAmount.ToString();
         float wood = unit.wood;
         woodAmount -= wood;
-        woodAmountText.text = woodAmount.ToString();
+        woodAmountText.text = "Wood: " + woodAmount.ToString();
 
         if (goldAmount < warrior.cost || copperAmount < warrior.copper || woodAmount < warrior.wood)
         {
