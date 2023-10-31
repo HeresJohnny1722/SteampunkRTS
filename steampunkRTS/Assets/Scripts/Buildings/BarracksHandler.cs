@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.AI;
 
-public class ActionFrame : MonoBehaviour
+public class BarracksHandler : MonoBehaviour
 {
     public TextMeshProUGUI timeLeftText;
     public TextMeshProUGUI queueSizeText;

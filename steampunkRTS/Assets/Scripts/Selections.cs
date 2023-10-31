@@ -18,8 +18,8 @@ public class Selections : MonoBehaviour
     public List<GameObject> buildingsList = new List<GameObject>();
     public Transform selectedBuilding = null;
 
-    private ActionFrame actionFrame;
-    public GameObject ActionFrameGameobject;
+    private BarracksHandler barraksHandler;
+    public GameObject barracksHandlerGameobject;
 
     private NavMeshAgent myAgent;
     private Camera myCam;
@@ -37,7 +37,7 @@ public class Selections : MonoBehaviour
 
     void Awake()
     {
-        actionFrame = ActionFrameGameobject.GetComponent<ActionFrame>();
+        barraksHandler = barracksHandlerGameobject.GetComponent<BarracksHandler>();
 
         if (_instance != null && _instance != this)
         {
@@ -61,13 +61,13 @@ public class Selections : MonoBehaviour
         unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
      
 
-        actionFrame.BarracksMenuClose();
+        barraksHandler.BarracksMenuClose();
 
     }
 
     public void ClickSelectBuilding(Transform buildingToSelect)
     {
-        actionFrame.BarracksMenuClose();
+        barraksHandler.BarracksMenuClose();
         DeselectAll();
         Debug.Log(buildingToSelect.name);
         selectedBuilding = buildingToSelect;
@@ -82,7 +82,7 @@ public class Selections : MonoBehaviour
         //selectedBuilding.GetChild(2).gameObject.SetActive(true);
         //Open up a training/reserch menu/ just some kind of UI
         //ActionFrame.instance.SetActionButtons();
-        actionFrame.BarracksMenuOpen();
+        barraksHandler.BarracksMenuOpen();
         
 
         //unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
@@ -94,7 +94,7 @@ public class Selections : MonoBehaviour
     {
         if (!unitsSelected.Contains(unitToAdd) && (unitsSelected.Count < 9))
         {
-            actionFrame.BarracksMenuClose();
+            barraksHandler.BarracksMenuClose();
             unitsSelected.Add(unitToAdd);
             unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
         }
@@ -110,7 +110,7 @@ public class Selections : MonoBehaviour
     {
         if (!unitsSelected.Contains(unitToAdd) && (unitsSelected.Count < 9))
         {
-            actionFrame.BarracksMenuClose();
+            barraksHandler.BarracksMenuClose();
             unitsSelected.Add(unitToAdd);
             unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
         }
@@ -118,7 +118,7 @@ public class Selections : MonoBehaviour
 
     public void DeselectAll()
     {
-        actionFrame.BarracksMenuClose();
+        barraksHandler.BarracksMenuClose();
 
 
         foreach (var unit in unitsSelected)
