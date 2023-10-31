@@ -320,10 +320,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 819431095}
   screenEdgeWidth: 10
-  normalSpeed: 0.5
-  fastSpeed: 1
-  normalKeyboardSpeed: 0
-  fastKeyboardSpeed: 0
+  normalSpeed: 6
+  fastSpeed: 12
+  normalKeyboardSpeed: 0.03
+  fastKeyboardSpeed: 0.06
   movementMouseSpeed: 0
   movementKeyboardSpeed: 0
   movementTime: 5
