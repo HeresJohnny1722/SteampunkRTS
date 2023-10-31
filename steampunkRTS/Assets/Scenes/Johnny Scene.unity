@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11457184, g: 0.33009583, b: 0.7115123, a: 1}
+  m_IndirectSpecularColor: {r: 0.11457564, g: 0.33009854, b: 0.7120344, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -440,7 +440,7 @@ MonoBehaviour:
   unitsSelected: []
   buildingsList: []
   selectedBuilding: {fileID: 0}
-  ActionFrameGameobject: {fileID: 2889557872897589952}
+  barracksHandlerGameobject: {fileID: 2889557872897589952}
   friendlyUnit:
     serializedVersion: 2
     m_Bits: 512
@@ -515,7 +515,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Soldiers in que:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -825,7 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 460799321}
-  screenEdgeWidth: 10
+  screenEdgeWidth: 100
   normalSpeed: 6
   fastSpeed: 12
   normalKeyboardSpeed: 0.03
@@ -1095,7 +1095,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Training time:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1268,7 +1268,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Unit Name:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1926,13 +1926,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544097295}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.408785, y: 0.22998272, z: -0.107242696, w: 0.8766423}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 29.4, z: 0}
 --- !u!114 &1544097298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2532,8 +2532,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 290.79724, y: 166.8969}
-  m_SizeDelta: {x: -581.5947, y: -333.7939}
+  m_AnchoredPosition: {x: 289.38174, y: 137.17072}
+  m_SizeDelta: {x: -578.7637, y: -274.3416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2088153973
 MonoBehaviour:
@@ -2653,7 +2653,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Copper:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2928,8 +2928,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -301.992, y: 184.53897}
-  m_SizeDelta: {x: -603.9839, y: -369.0779}
+  m_AnchoredPosition: {x: -297.03763, y: 153.39719}
+  m_SizeDelta: {x: -594.0751, y: -306.7945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3326976042623164674
 CanvasRenderer:
@@ -3030,7 +3030,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Gold:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3428,7 +3428,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Wood:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
