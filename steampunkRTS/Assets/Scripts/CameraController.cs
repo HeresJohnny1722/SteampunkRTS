@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,23 +45,56 @@ public class CameraController : MonoBehaviour
         HandleMovementInput();
     }
 
+=======
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CameraController : MonoBehaviour
+{
+    public Transform cameraTransform;
+    public float screenEdgeWidth = 10f;
+
+    public float normalSpeed;
+    public float fastSpeed;
+    public float normalKeyboardSpeed;
+    public float fastKeyboardSpeed;
+    public float movementMouseSpeed;
+    public float movementKeyboardSpeed;
+    public float movementTime;
+    public float rotationAmount;
+    public Vector3 zoomAmount;
+
+    public Vector3 newPosition;
+    public Quaternion newRotation;
+    public Vector3 newZoom;
+
+    public Vector3 dragStartPosition;
+    public Vector3 dragCurrentPosition;
+    public Vector3 rotateStartPosition;
+    public Vector3 rotateCurrentPosition;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        newPosition = transform.position;
+        newRotation = transform.rotation;
+        newZoom = cameraTransform.localPosition;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        HandleMouseInput();
+        HandleMovementInput();
+    }
+
+>>>>>>> parent of 111c25c (Beginning Refactoring)
     void HandleMouseInput()
     {
-        if (Input.mouseScrollDelta.y > 0)
+        if (Input.mouseScrollDelta.y != 0)
         {
-            // Zoom in only if the current zoom is not at the minimum limit
-            if (newZoom.y > minZoom)
-            {
-                newZoom += Input.mouseScrollDelta.y * zoomAmount;
-            }
-        }
-        else if (Input.mouseScrollDelta.y < 0)
-        {
-            // Zoom out only if the current zoom is not at the maximum limit
-            if (newZoom.y < maxZoom)
-            {
-                newZoom += Input.mouseScrollDelta.y * zoomAmount;
-            }
+            newZoom += Input.mouseScrollDelta.y * zoomAmount;
         }
 
         // Get the mouse position
@@ -150,8 +184,16 @@ public class CameraController : MonoBehaviour
             newZoom -= zoomAmount;
         }
 
+<<<<<<< HEAD
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * movementTime);
         cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, newZoom, Time.deltaTime * movementTime);
     }
 }
+=======
+            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * movementTime);
+            cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, newZoom, Time.deltaTime * movementTime);
+    }
+}
+>>>>>>> parent of 111c25c (Beginning Refactoring)

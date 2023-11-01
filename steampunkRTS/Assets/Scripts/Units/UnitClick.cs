@@ -51,7 +51,21 @@ using UnityEngine;
 
                     }
 
+<<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
                 } else
+=======
+                } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, Building))
+                {
+                //Building stuff
+                
+                Selections.Instance.ClickSelectBuilding(hit.transform);
+                //ActionFrame.instance.SetActionButtons();
+
+            }
+
+
+                else
+>>>>>>> parent of 111c25c (Beginning Refactoring):steampunkRTS/Assets/Scripts/UnitClick.cs
                 {
                     if (!Input.GetKey(KeyCode.LeftShift))
                     {
@@ -62,11 +76,12 @@ using UnityEngine;
 
             }
 
-        if (Input.GetMouseButtonDown(1) && !IsMouseOverUI())
-        {
+            if (Input.GetMouseButtonDown(1) && !IsMouseOverUI())
+            {
                 RaycastHit hit;
                 Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
 
+<<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, enemyUnit))
             {
                 //attack
@@ -77,13 +92,28 @@ using UnityEngine;
                 }
 
             } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+=======
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+>>>>>>> parent of 111c25c (Beginning Refactoring):steampunkRTS/Assets/Scripts/UnitClick.cs
             {
                 if (Selections.Instance.unitsSelected.Count > 0)
                 {
                     Selections.Instance.moveUnits(hit.point);
                 }
+<<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
             }
+=======
+                    
+             }
+                else 
+                {
+                    
+                }
+                //attack I think
 
+
+>>>>>>> parent of 111c25c (Beginning Refactoring):steampunkRTS/Assets/Scripts/UnitClick.cs
+
+            }
         }
     }
-}
