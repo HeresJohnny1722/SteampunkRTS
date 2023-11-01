@@ -51,17 +51,7 @@ using UnityEngine;
 
                     }
 
-                } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, Building))
-                {
-                //Building stuff
-                
-                Selections.Instance.ClickSelectBuilding(hit.transform);
-                //ActionFrame.instance.SetActionButtons();
-
-            } 
-
-
-                else
+                } else
                 {
                     if (!Input.GetKey(KeyCode.LeftShift))
                     {
@@ -80,28 +70,19 @@ using UnityEngine;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, enemyUnit))
             {
                 //attack
-                if (Selections.Instance.selectedBuilding == null)
+                if (Selections.Instance.unitsSelected.Count > 0)
                 {
-                    Selections.Instance.attackUnits(hit.point);
+                    //Selections.Instance.attackUnits(hit.point);
                     Debug.Log("Attacking Enemy");
                 }
+
             } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
             {
-                    if (Selections.Instance.selectedBuilding != null)
-                {
-                    //Be able to move the spawn point
-                    Selections.Instance.selectedBuilding.GetChild(2).gameObject.SetActive(true);
-                    Selections.Instance.selectedBuilding.GetChild(2).transform.position = hit.point;
-                } else
+                if (Selections.Instance.unitsSelected.Count > 0)
                 {
                     Selections.Instance.moveUnits(hit.point);
                 }
-                    
-             }
-            
-           
-
-
+            }
 
         }
     }

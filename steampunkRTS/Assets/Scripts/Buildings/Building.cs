@@ -15,14 +15,14 @@ using UnityEngine;
         void Start()
         {
             SetStats();
-            Selections.Instance.buildingsList.Add(this.gameObject);
+            BuildingSelections.Instance.buildingsList.Add(this.gameObject);
 
 
         }
 
         void OnDestroy()
         {
-            Selections.Instance.buildingsList.Remove(this.gameObject);
+        BuildingSelections.Instance.buildingsList.Remove(this.gameObject);
         }
 
         private void SetStats()
