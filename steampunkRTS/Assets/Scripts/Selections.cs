@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.AI;
 
 public class Selections : MonoBehaviour
 {
 
 
-    public float angleOffset = 45f;
+    //public RadialFormation radialFormation;
 
     public List<GameObject> unitList = new List<GameObject>();
     public List<GameObject> unitsSelected = new List<GameObject>();
@@ -34,6 +35,69 @@ public class Selections : MonoBehaviour
 
     private GameObject leader;
 
+    private FormationBase _formation;
+
+    public FormationBase Formation
+    {
+        get
+        {
+            if (_formation == null) _formation = GetComponent<FormationBase>();
+            return _formation;
+        }
+        set => _formation = value;
+    }
+
+    private List<Vector3> _points = new List<Vector3>();
+
+    public void moveUnits(Vector3 moveToPosition)
+    {
+        Debug.Log("move units");
+
+        if (unitsSelected.Count > 0)
+        {
+            setGroundMarker(groundMarker, moveToPosition);
+            _points = Formation.EvaluatePoints().ToList();
+
+            for (var i = 0; i < unitsSelected.Count; i++)
+            {
+                myAgent = unitsSelected[i].GetComponent<NavMeshAgent>();
+                myAgent.SetDestination(_points[i] + moveToPosition);
+                //unitsSelected[i].transform.position = Vector3.MoveTowards(unitsSelected[i].transform.position, transform.position + _points[i], _unitSpeed * Time.deltaTime);
+            }
+            /*
+
+            radialFormation = GetComponent<RadialFormation>();
+
+            // Calculate the number of units in the formation
+            int formationSize = Mathf.CeilToInt(Mathf.Sqrt(unitsSelected.Count));
+
+            if (radialFormation != null)
+            {
+
+
+                // Calculate the formation
+                List<Vector3> formation = new List<Vector3>(radialFormation.EvaluatePoints());
+
+                if (formation.Count >= unitsSelected.Count)
+                {
+                    for (int i = 0; i < unitsSelected.Count; i++)
+                    {
+                        myAgent = unitsSelected[i].GetComponent<NavMeshAgent>();
+                        myAgent.SetDestination(moveToPosition + formation[i]);
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Not enough positions in the radial formation for all selected units.");
+                }
+            }
+            else
+            {
+                Debug.LogError("The 'radialFormation' variable is not set. Make sure to assign a RadialFormation component in the Inspector.");
+            }
+            */
+        }
+    }
 
     void Awake()
     {
@@ -108,7 +172,7 @@ public class Selections : MonoBehaviour
 
     public void DragSelect(GameObject unitToAdd)
     {
-        if (!unitsSelected.Contains(unitToAdd) && (unitsSelected.Count < 9))
+        if (!unitsSelected.Contains(unitToAdd) && (unitsSelected.Count < 20))
         {
             barraksHandler.BarracksMenuClose();
             unitsSelected.Add(unitToAdd);
@@ -137,48 +201,7 @@ public class Selections : MonoBehaviour
 
     }
 
-    public void moveUnits(Vector3 moveToPosition)
-    {
-        Debug.Log("move units");
-
-
-        if (unitsSelected.Count > 0)
-        {
-            setGroundMarker(groundMarker, moveToPosition);
-
-            //float spacing = 2f;
-
-            int formationSize = (int)Mathf.CeilToInt(Mathf.Sqrt(unitsSelected.Count));
-
-            List<Vector3> targetPositionList = new List<Vector3>();
-            int targetPositionListIndex = 0;
-
-            leader = unitsSelected[0].gameObject;
-            //Debug.Log(leader);
-            leader.GetComponent<NavMeshAgent>().SetDestination(moveToPosition);
-
-            
-
-            
-            for (int x = -1; x <= 1; x += spacing)
-            {
-                for (int z = -1; z <= 1; z += spacing)
-                {
-                    Vector3 targetPosition = new Vector3(moveToPosition.x + x, 0, moveToPosition.z + z);
-                    targetPositionList.Add(targetPosition);
-                }
-            }
-
-            for (int i = 1; i < unitsSelected.Count; i++)
-                {
-                    myAgent = unitsSelected[i].GetComponent<NavMeshAgent>();
-                    myAgent.SetDestination(targetPositionList[targetPositionListIndex]);
-                    targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
-                }
-                
-            
-        }
-    }
+    
 
 
 
