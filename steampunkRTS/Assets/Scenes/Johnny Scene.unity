@@ -829,9 +829,14 @@ MonoBehaviour:
   screenEdgeWidth: 10
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   screenEdgeWidth: 100
 >>>>>>> parent of 111c25c (Beginning Refactoring)
+=======
+  minZoom: 25
+  maxZoom: 60
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
 =======
   minZoom: 25
   maxZoom: 60
@@ -2129,9 +2134,13 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 863013764}
 =======
 >>>>>>> parent of 111c25c (Beginning Refactoring)
+=======
+  - {fileID: 815978757}
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
 =======
   - {fileID: 815978757}
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)

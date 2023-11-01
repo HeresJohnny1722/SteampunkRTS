@@ -52,12 +52,15 @@ using UnityEngine;
                     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
 <<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
                 } else
 =======
 =======
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS):steampunkRTS/Assets/Scripts/UnitClick.cs
+=======
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
 =======
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
                 } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, Building))
@@ -68,6 +71,7 @@ using UnityEngine;
                 //ActionFrame.instance.SetActionButtons();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
             }
 
@@ -77,12 +81,17 @@ using UnityEngine;
 =======
 =======
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
+=======
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
             } 
 
 
                 else
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS):steampunkRTS/Assets/Scripts/UnitClick.cs
+=======
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
 =======
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
                 {
@@ -96,6 +105,7 @@ using UnityEngine;
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (Input.GetMouseButtonDown(1) && !IsMouseOverUI())
             {
                 RaycastHit hit;
@@ -103,11 +113,16 @@ using UnityEngine;
 
 <<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
 =======
+=======
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
         if (Input.GetMouseButtonDown(1) && !IsMouseOverUI())
         {
                 RaycastHit hit;
                 Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
 
+<<<<<<< HEAD
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
+=======
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, enemyUnit))
             {
@@ -119,9 +134,12 @@ using UnityEngine;
                 }
             } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
 >>>>>>> parent of 111c25c (Beginning Refactoring):steampunkRTS/Assets/Scripts/UnitClick.cs
+=======
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
 =======
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
             {
@@ -134,6 +152,7 @@ using UnityEngine;
                 {
                     Selections.Instance.moveUnits(hit.point);
                 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
 <<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
@@ -149,12 +168,15 @@ using UnityEngine;
 =======
 =======
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
+=======
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
                     
              }
             
            
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS):steampunkRTS/Assets/Scripts/UnitClick.cs
 
@@ -165,8 +187,13 @@ using UnityEngine;
         }
     }
 =======
+=======
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
 
         }
     }
 }
+<<<<<<< HEAD
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
+=======
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
