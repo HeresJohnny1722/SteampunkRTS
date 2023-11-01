@@ -537,6 +537,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarracksSteampunk_V3Outlined
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1678bbfd0ce174fafba3af084e961fc1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
