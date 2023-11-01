@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Selections : MonoBehaviour
 {
-    
+
 
     public float angleOffset = 45f;
 
@@ -52,14 +52,14 @@ public class Selections : MonoBehaviour
 
     }
 
- 
+
 
     public void ClickSelectUnit(GameObject unitToAdd)
     {
         DeselectAll();
         unitsSelected.Add(unitToAdd);
         unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
-     
+
 
         barraksHandler.BarracksMenuClose();
 
@@ -83,7 +83,7 @@ public class Selections : MonoBehaviour
         //Open up a training/reserch menu/ just some kind of UI
         //ActionFrame.instance.SetActionButtons();
         barraksHandler.BarracksMenuOpen();
-        
+
 
         //unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
 
@@ -134,15 +134,15 @@ public class Selections : MonoBehaviour
             selectedBuilding.GetChild(2).gameObject.SetActive(false);
             selectedBuilding = null;
         }
-        
+
     }
 
-    
 
 
-        
 
-        
+
+
+
 
     public float offsetDistance = 2f;
 
@@ -192,7 +192,7 @@ public class Selections : MonoBehaviour
 
 
 
-        public void setGroundMarker(GameObject groundMarkerObject, Vector3 groundMarkerPosition)
+    public void setGroundMarker(GameObject groundMarkerObject, Vector3 groundMarkerPosition)
     {
         groundMarkerObject.transform.position = groundMarkerPosition;
         groundMarkerObject.SetActive(false);
@@ -240,10 +240,3 @@ public class Selections : MonoBehaviour
         {
             if ()
         }*/
-
-
-
-
-
-
-
