@@ -75,12 +75,13 @@ public class UnitClick : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1) && !IsMouseOverUI())
         {
+            Debug.Log("shooting raycasy");
             RaycastHit hit;
             Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
             {
-                if (Selections.Instance.selectedBuilding != null)
+                if (Selections.Instance.selectedBuilding)
                 {
                     //Be able to move the spawn point
                     Selections.Instance.selectedBuilding.GetChild(2).gameObject.SetActive(true);

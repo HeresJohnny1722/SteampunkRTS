@@ -137,15 +137,6 @@ public class Selections : MonoBehaviour
 
     }
 
-
-
-
-
-
-
-
-    public float offsetDistance = 2f;
-
     public void moveUnits(Vector3 moveToPosition)
     {
         Debug.Log("move units");
@@ -153,9 +144,7 @@ public class Selections : MonoBehaviour
 
         if (unitsSelected.Count > 0)
         {
-            groundMarker.transform.position = moveToPosition;
-            groundMarker.SetActive(false);
-            groundMarker.SetActive(true);
+            setGroundMarker(groundMarker, moveToPosition);
 
             //float spacing = 2f;
 
@@ -198,45 +187,4 @@ public class Selections : MonoBehaviour
         groundMarkerObject.SetActive(false);
         groundMarkerObject.SetActive(true);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*for (int x = 0; x < formationSize; x++)
-    {
-        for (int z = 0; z < formationSize; z++)
-        {
-            // Calculate formationOffset based on current unit's position within the formation
-            Vector3 formationOffset = new Vector3(x * spacing, 0, z * spacing);
-            formationOffset = Quaternion.Euler(0, leader.transform.eulerAngles.y, 0) * formationOffset;
-            Vector3 targetPosition = moveToPosition + formationOffset;
-            targetPositionList.Add(targetPosition);
-        }
-    }*/
-    /*
-        int targetPositionListIndex = 0;
-
-        foreach (var unit in unitsSelected)
-        {
-
-        }
-    */
 }
-
-/*else if (Physics.Raycast(ray, out hit, Mathf.Infinity, Building))
-        {
-            if ()
-        }*/

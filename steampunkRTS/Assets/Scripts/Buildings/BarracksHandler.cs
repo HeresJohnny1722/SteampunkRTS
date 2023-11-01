@@ -28,9 +28,9 @@ public class BarracksHandler : MonoBehaviour
     [SerializeField]
     private List<UnitScriptableObject> unitsToTrain = new List<UnitScriptableObject>();
 
-    [SerializeField] private List<Button> buttonPrefabs = new List<Button>();
-    [SerializeField] private Transform layoutGroup = null;
-    private List<Button> buttonsInstantiated = new List<Button>();
+    //[SerializeField] private List<Button> buttonPrefabs = new List<Button>();
+    //[SerializeField] private Transform layoutGroup = null;
+    //private List<Button> buttonsInstantiated = new List<Button>();
 
     private void Start()
     {

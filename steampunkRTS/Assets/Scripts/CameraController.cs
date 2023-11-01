@@ -7,6 +7,9 @@ public class CameraController : MonoBehaviour
     public Transform cameraTransform;
     public float screenEdgeWidth = 10f;
 
+    public float minZoom = 25f;
+    public float maxZoom = 60f;
+
     public float normalSpeed;
     public float fastSpeed;
     public float normalKeyboardSpeed;
@@ -43,9 +46,21 @@ public class CameraController : MonoBehaviour
 
     void HandleMouseInput()
     {
-        if (Input.mouseScrollDelta.y != 0)
+        if (Input.mouseScrollDelta.y > 0)
         {
-            newZoom += Input.mouseScrollDelta.y * zoomAmount;
+            // Zoom in only if the current zoom is not at the minimum limit
+            if (newZoom.y > minZoom)
+            {
+                newZoom += Input.mouseScrollDelta.y * zoomAmount;
+            }
+        }
+        else if (Input.mouseScrollDelta.y < 0)
+        {
+            // Zoom out only if the current zoom is not at the maximum limit
+            if (newZoom.y < maxZoom)
+            {
+                newZoom += Input.mouseScrollDelta.y * zoomAmount;
+            }
         }
 
         // Get the mouse position
@@ -126,14 +141,14 @@ public class CameraController : MonoBehaviour
             newRotation *= Quaternion.Euler(Vector3.up * -rotationAmount);
         }
 
-        if (Input.GetKey(KeyCode.R))
+        /*if (Input.GetKey(KeyCode.R))
         {
             newZoom += zoomAmount;
         }
         if (Input.GetKey(KeyCode.F))
         {
             newZoom -= zoomAmount;
-        }
+        }*/
 
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * movementTime);
