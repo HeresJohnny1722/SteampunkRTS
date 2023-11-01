@@ -58,7 +58,7 @@ using UnityEngine;
                 Selections.Instance.ClickSelectBuilding(hit.transform);
                 //ActionFrame.instance.SetActionButtons();
 
-            }
+            } 
 
 
                 else
@@ -72,12 +72,20 @@ using UnityEngine;
 
             }
 
-            if (Input.GetMouseButtonDown(1) && !IsMouseOverUI())
-            {
+        if (Input.GetMouseButtonDown(1) && !IsMouseOverUI())
+        {
                 RaycastHit hit;
                 Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, enemyUnit))
+            {
+                //attack
+                if (Selections.Instance.selectedBuilding == null)
+                {
+                    Selections.Instance.attackUnits(hit.point);
+                    Debug.Log("Attacking Enemy");
+                }
+            } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
             {
                     if (Selections.Instance.selectedBuilding != null)
                 {
@@ -90,14 +98,11 @@ using UnityEngine;
                 }
                     
              }
-                else 
-                {
-                    
-                }
-                //attack I think
+            
+           
 
 
 
-            }
         }
     }
+}

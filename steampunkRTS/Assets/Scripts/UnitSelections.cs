@@ -190,56 +190,20 @@ public class Selections : MonoBehaviour
         }
     }
 
+    public void attackUnits(Vector3 moveToPosition)
+    {
+        //Debug.Log("move units"); 
+    }
 
 
-        public void setGroundMarker(GameObject groundMarkerObject, Vector3 groundMarkerPosition)
+
+    public void setGroundMarker(GameObject groundMarkerObject, Vector3 groundMarkerPosition)
     {
         groundMarkerObject.transform.position = groundMarkerPosition;
         groundMarkerObject.SetActive(false);
         groundMarkerObject.SetActive(true);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*for (int x = 0; x < formationSize; x++)
-    {
-        for (int z = 0; z < formationSize; z++)
-        {
-            // Calculate formationOffset based on current unit's position within the formation
-            Vector3 formationOffset = new Vector3(x * spacing, 0, z * spacing);
-            formationOffset = Quaternion.Euler(0, leader.transform.eulerAngles.y, 0) * formationOffset;
-            Vector3 targetPosition = moveToPosition + formationOffset;
-            targetPositionList.Add(targetPosition);
-        }
-    }*/
-    /*
-        int targetPositionListIndex = 0;
-
-        foreach (var unit in unitsSelected)
-        {
-
-        }
-    */
 }
-
-/*else if (Physics.Raycast(ray, out hit, Mathf.Infinity, Building))
-        {
-            if ()
-        }*/
 
 
 

@@ -7,6 +7,9 @@ public class CameraController : MonoBehaviour
     public Transform cameraTransform;
     public float screenEdgeWidth = 10f;
 
+    public float minZoom = 1f;  // Set your desired minimum zoom value
+    public float maxZoom = 10f;
+
     public float normalSpeed;
     public float fastSpeed;
     public float normalKeyboardSpeed;
@@ -43,13 +46,31 @@ public class CameraController : MonoBehaviour
 
     void HandleMouseInput()
     {
-        if (Input.mouseScrollDelta.y != 0)
+        if (Input.mouseScrollDelta.y > 0)
         {
-            newZoom += Input.mouseScrollDelta.y * zoomAmount;
+            // Zoom in only if the current zoom is not at the minimum limit
+            if (newZoom.y > minZoom)
+            {
+                newZoom += Input.mouseScrollDelta.y * zoomAmount;
+            }
+        }
+        else if (Input.mouseScrollDelta.y < 0)
+        {
+            // Zoom out only if the current zoom is not at the maximum limit
+            if (newZoom.y < maxZoom)
+            {
+                newZoom += Input.mouseScrollDelta.y * zoomAmount;
+            }
         }
 
-        // Get the mouse position
-        Vector3 mousePosition = Input.mousePosition;
+        // ...
+
+        // Rest of the HandleMouseInput method...
+    
+
+
+    // Get the mouse position
+    Vector3 mousePosition = Input.mousePosition;
 
         // Initialize a movement vector
         Vector3 moveDirection = Vector3.zero;
@@ -135,7 +156,9 @@ public class CameraController : MonoBehaviour
             newZoom -= zoomAmount;
         }
 
-            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
+        newZoom.y = Mathf.Clamp(newZoom.y, minZoom, maxZoom);
+
+        transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
             transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * movementTime);
             cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, newZoom, Time.deltaTime * movementTime);
     }
