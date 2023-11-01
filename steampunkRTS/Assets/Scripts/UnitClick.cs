@@ -3,197 +3,103 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using UnityEngine;
 
-    public class UnitClick : MonoBehaviour
+public class UnitClick : MonoBehaviour
+{
+
+    private Camera myCam;
+
+    public LayerMask friendlyUnit;
+    public LayerMask enemyUnit;
+    public LayerMask Building;
+    public LayerMask ground;
+
+    public GameObject groundMarker;
+
+    // Start is called before the first frame update
+    void Start()
     {
-
-        private Camera myCam;
-
-        public LayerMask friendlyUnit;
-        public LayerMask enemyUnit;
-        public LayerMask Building;
-        public LayerMask ground;
-
-        public GameObject groundMarker;
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            myCam = Camera.main;
-        }
+        myCam = Camera.main;
+    }
 
     private bool IsMouseOverUI()
     {
         return EventSystem.current.IsPointerOverGameObject();
     }
 
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && !IsMouseOverUI())
         {
-            if (Input.GetMouseButtonDown(0) && !IsMouseOverUI())
+
+            RaycastHit hit;
+            Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, friendlyUnit))
             {
 
-                RaycastHit hit;
-                Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
-
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, friendlyUnit))
+                if (Input.GetKey(KeyCode.LeftShift))
                 {
 
-                    if (Input.GetKey(KeyCode.LeftShift))
-                    {
+                    Selections.Instance.ShiftClickSelect(hit.collider.gameObject);
 
-                        Selections.Instance.ShiftClickSelect(hit.collider.gameObject);
-
-                    }
-                    else
-                    {
-
-                        Selections.Instance.ClickSelectUnit(hit.collider.gameObject);
-
-                    }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
-<<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
-                } else
-=======
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS):steampunkRTS/Assets/Scripts/UnitClick.cs
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
-                } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, Building))
+                }
+                else
                 {
+
+                    Selections.Instance.ClickSelectUnit(hit.collider.gameObject);
+
+                }
+
+            }
+            else if (Physics.Raycast(ray, out hit, Mathf.Infinity, Building))
+            {
                 //Building stuff
-                
+
                 Selections.Instance.ClickSelectBuilding(hit.transform);
                 //ActionFrame.instance.SetActionButtons();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
             }
 
 
-                else
->>>>>>> parent of 111c25c (Beginning Refactoring):steampunkRTS/Assets/Scripts/UnitClick.cs
-=======
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
-            } 
-
-
-                else
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS):steampunkRTS/Assets/Scripts/UnitClick.cs
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
+            else
+            {
+                if (!Input.GetKey(KeyCode.LeftShift))
                 {
-                    if (!Input.GetKey(KeyCode.LeftShift))
-                    {
-                        Selections.Instance.DeselectAll();
-                    }
-
+                    Selections.Instance.DeselectAll();
                 }
 
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-            if (Input.GetMouseButtonDown(1) && !IsMouseOverUI())
-            {
-                RaycastHit hit;
-                Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
+        }
 
-<<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
-=======
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
         if (Input.GetMouseButtonDown(1) && !IsMouseOverUI())
         {
-                RaycastHit hit;
-                Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
 
-<<<<<<< HEAD
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, enemyUnit))
-            {
-                //attack
-                if (Selections.Instance.selectedBuilding == null)
-                {
-                    Selections.Instance.attackUnits(hit.point);
-                    Debug.Log("Attacking Enemy");
-                }
-            } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
->>>>>>> parent of 111c25c (Beginning Refactoring):steampunkRTS/Assets/Scripts/UnitClick.cs
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
             {
-                    if (Selections.Instance.selectedBuilding != null)
+                if (Selections.Instance.selectedBuilding != null)
                 {
                     //Be able to move the spawn point
                     Selections.Instance.selectedBuilding.GetChild(2).gameObject.SetActive(true);
                     Selections.Instance.selectedBuilding.GetChild(2).transform.position = hit.point;
-                } else
+                }
+                else
                 {
                     Selections.Instance.moveUnits(hit.point);
                 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
-<<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
-            }
-=======
-                    
-             }
-                else 
-                {
-                    
-                }
-                //attack I think
-=======
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
-                    
-             }
-            
-           
-
-
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS):steampunkRTS/Assets/Scripts/UnitClick.cs
-
-
->>>>>>> parent of 111c25c (Beginning Refactoring):steampunkRTS/Assets/Scripts/UnitClick.cs
 
             }
-        }
-    }
-=======
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
+            else
+            {
+
+            }
+            //attack I think
+
+
 
         }
     }
 }
-<<<<<<< HEAD
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
-=======
->>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
