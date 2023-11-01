@@ -16,16 +16,18 @@ MonoBehaviour:
   - <Name>k__BackingField: Barrack
     <ID>k__BackingField: 0
     <Size>k__BackingField: {x: 0, y: 0}
-    <Prefab>k__BackingField: {fileID: 0}
-  - <Name>k__BackingField: Town Hall
-    <ID>k__BackingField: 0
-    <Size>k__BackingField: {x: 0, y: 0}
-    <Prefab>k__BackingField: {fileID: 0}
+    <Prefab>k__BackingField: {fileID: 6954639544148333482, guid: 257f1f9e188bd4ac6bc91ddf07cd9b56,
+      type: 3}
   - <Name>k__BackingField: Farm Suff
-    <ID>k__BackingField: 0
+    <ID>k__BackingField: 1
+    <Size>k__BackingField: {x: 0, y: 0}
+    <Prefab>k__BackingField: {fileID: 9071723579034982355, guid: a4854a14ffa494c74a56c756fe17655a,
+      type: 3}
+  - <Name>k__BackingField: Town Hall
+    <ID>k__BackingField: 2
     <Size>k__BackingField: {x: 0, y: 0}
     <Prefab>k__BackingField: {fileID: 0}
   - <Name>k__BackingField: Camp
-    <ID>k__BackingField: 0
+    <ID>k__BackingField: 3
     <Size>k__BackingField: {x: 0, y: 0}
     <Prefab>k__BackingField: {fileID: 0}
