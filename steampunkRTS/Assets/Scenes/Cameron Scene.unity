@@ -434,7 +434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 429668287}
-  - component: {fileID: 429668286}
+  - component: {fileID: 429668288}
   m_Layer: 0
   m_Name: Camera Rig
   m_TagString: Untagged
@@ -442,36 +442,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &429668286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429668285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3cf7943fc26a46bba8db4b822e7a703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 819431095}
-  screenEdgeWidth: 10
-  normalSpeed: 6
-  fastSpeed: 12
-  normalKeyboardSpeed: 0.03
-  fastKeyboardSpeed: 0.06
-  movementMouseSpeed: 0
-  movementKeyboardSpeed: 0
-  movementTime: 5
-  rotationAmount: 4
-  zoomAmount: {x: 0, y: -3, z: 3}
-  newPosition: {x: 0, y: 0, z: 0}
-  newRotation: {x: 0, y: 0, z: 0, w: 0}
-  newZoom: {x: 0, y: 0, z: 0}
-  dragStartPosition: {x: 0, y: 0, z: 0}
-  dragCurrentPosition: {x: 0, y: 0, z: 0}
-  rotateStartPosition: {x: 0, y: 0, z: 0}
-  rotateCurrentPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &429668287
 Transform:
   m_ObjectHideFlags: 0
@@ -488,6 +458,38 @@ Transform:
   - {fileID: 819431095}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &429668288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429668285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3cf7943fc26a46bba8db4b822e7a703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 819431095}
+  screenEdgeWidth: 10
+  normalSpeed: 1
+  fastSpeed: 1
+  normalKeyboardSpeed: 1
+  fastKeyboardSpeed: 1
+  movementMouseSpeed: 1
+  movementKeyboardSpeed: 1
+  movementTime: 1
+  rotationAmount: 1
+  zoomAmount: {x: 0, y: -3, z: 0}
+  newPosition: {x: 0, y: 0, z: 0}
+  newRotation: {x: 0, y: 0, z: 0, w: 0}
+  newZoom: {x: 0, y: 0, z: 0}
+  minZoom: 1
+  maxZoom: 10
+  dragStartPosition: {x: 0, y: 0, z: 0}
+  dragCurrentPosition: {x: 0, y: 0, z: 0}
+  rotateStartPosition: {x: 0, y: 0, z: 0}
+  rotateCurrentPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &436580054
 GameObject:
   m_ObjectHideFlags: 0
