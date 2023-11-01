@@ -29,7 +29,7 @@ public class Selections : MonoBehaviour
     public LayerMask Building;
     public LayerMask ground;
 
-    public float spacing = 1f;
+    public int spacing = 1;
     public GameObject groundMarker;
 
     private GameObject leader;
@@ -151,31 +151,32 @@ public class Selections : MonoBehaviour
             int formationSize = (int)Mathf.CeilToInt(Mathf.Sqrt(unitsSelected.Count));
 
             List<Vector3> targetPositionList = new List<Vector3>();
-            int targetPositionListIndex = 1;
+            int targetPositionListIndex = 0;
 
             leader = unitsSelected[0].gameObject;
             //Debug.Log(leader);
             leader.GetComponent<NavMeshAgent>().SetDestination(moveToPosition);
 
-            // Calculate leader's forward vector
-            Vector3 leaderForward = leader.transform.forward;
+            
 
-
-            for (int x = -1; x <= 1; x++)
+            
+            for (int x = -1; x <= 1; x += spacing)
             {
-                for (int z = -1; z <= 1; z++)
+                for (int z = -1; z <= 1; z += spacing)
                 {
                     Vector3 targetPosition = new Vector3(moveToPosition.x + x, 0, moveToPosition.z + z);
                     targetPositionList.Add(targetPosition);
                 }
             }
 
-            foreach (var unit in unitsSelected)
-            {
-                myAgent = unit.GetComponent<NavMeshAgent>();
-                myAgent.SetDestination(targetPositionList[targetPositionListIndex]);
-                targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
-            }
+            for (int i = 1; i < unitsSelected.Count; i++)
+                {
+                    myAgent = unitsSelected[i].GetComponent<NavMeshAgent>();
+                    myAgent.SetDestination(targetPositionList[targetPositionListIndex]);
+                    targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
+                }
+                
+            
         }
     }
 

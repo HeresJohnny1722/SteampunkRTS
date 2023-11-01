@@ -90,6 +90,8 @@ public class UnitClick : MonoBehaviour
                 else
                 {
                     Selections.Instance.moveUnits(hit.point);
+                    setGroundMarker(groundMarker, hit.point);
+                    Debug.Log("Moving units!");
                 }
 
             }
@@ -102,5 +104,12 @@ public class UnitClick : MonoBehaviour
 
 
         }
+    }
+
+    public void setGroundMarker(GameObject groundMarkerObject, Vector3 groundMarkerPosition)
+    {
+        groundMarkerObject.transform.position = groundMarkerPosition;
+        groundMarkerObject.SetActive(false);
+        groundMarkerObject.SetActive(true);
     }
 }
