@@ -51,12 +51,15 @@ using UnityEngine;
 
                     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
 <<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
                 } else
 =======
 =======
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS):steampunkRTS/Assets/Scripts/UnitClick.cs
+=======
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
                 } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, Building))
                 {
                 //Building stuff
@@ -64,6 +67,7 @@ using UnityEngine;
                 Selections.Instance.ClickSelectBuilding(hit.transform);
                 //ActionFrame.instance.SetActionButtons();
 
+<<<<<<< HEAD
 <<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
             }
 
@@ -71,11 +75,16 @@ using UnityEngine;
                 else
 >>>>>>> parent of 111c25c (Beginning Refactoring):steampunkRTS/Assets/Scripts/UnitClick.cs
 =======
+=======
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
             } 
 
 
                 else
+<<<<<<< HEAD
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS):steampunkRTS/Assets/Scripts/UnitClick.cs
+=======
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
                 {
                     if (!Input.GetKey(KeyCode.LeftShift))
                     {
@@ -86,12 +95,20 @@ using UnityEngine;
 
             }
 
+<<<<<<< HEAD
             if (Input.GetMouseButtonDown(1) && !IsMouseOverUI())
             {
                 RaycastHit hit;
                 Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
 
 <<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
+=======
+        if (Input.GetMouseButtonDown(1) && !IsMouseOverUI())
+        {
+                RaycastHit hit;
+                Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
+
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, enemyUnit))
             {
                 //attack
@@ -101,9 +118,12 @@ using UnityEngine;
                     Debug.Log("Attacking Enemy");
                 }
             } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+<<<<<<< HEAD
 =======
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
 >>>>>>> parent of 111c25c (Beginning Refactoring):steampunkRTS/Assets/Scripts/UnitClick.cs
+=======
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
             {
                     if (Selections.Instance.selectedBuilding != null)
                 {
@@ -114,6 +134,7 @@ using UnityEngine;
                 {
                     Selections.Instance.moveUnits(hit.point);
                 }
+<<<<<<< HEAD
 <<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
 <<<<<<< HEAD:steampunkRTS/Assets/Scripts/Units/UnitClick.cs
             }
@@ -126,12 +147,15 @@ using UnityEngine;
                 }
                 //attack I think
 =======
+=======
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
                     
              }
             
            
 
 
+<<<<<<< HEAD
 >>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS):steampunkRTS/Assets/Scripts/UnitClick.cs
 
 
@@ -140,3 +164,9 @@ using UnityEngine;
             }
         }
     }
+=======
+
+        }
+    }
+}
+>>>>>>> parent of 6ef52dd (Merge branch 'main' of https://github.com/HeresJohnny1722/SteampunkRTS)
