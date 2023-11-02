@@ -7,8 +7,8 @@ public class CameraController : MonoBehaviour
     public Transform cameraTransform;
     public float screenEdgeWidth = 10f;
 
-    public float minZoom = 1f;  // Set your desired minimum zoom value
-    public float maxZoom = 10f;
+    public float minZoom = 25f;
+    public float maxZoom = 60f;
 
     public float normalSpeed;
     public float fastSpeed;
@@ -63,14 +63,8 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        // ...
-
-        // Rest of the HandleMouseInput method...
-    
-
-
-    // Get the mouse position
-    Vector3 mousePosition = Input.mousePosition;
+        // Get the mouse position
+        Vector3 mousePosition = Input.mousePosition;
 
         // Initialize a movement vector
         Vector3 moveDirection = Vector3.zero;
@@ -147,19 +141,17 @@ public class CameraController : MonoBehaviour
             newRotation *= Quaternion.Euler(Vector3.up * -rotationAmount);
         }
 
-        if (Input.GetKey(KeyCode.R))
+        /*if (Input.GetKey(KeyCode.R))
         {
             newZoom += zoomAmount;
         }
         if (Input.GetKey(KeyCode.F))
         {
             newZoom -= zoomAmount;
-        }
-
-        newZoom.y = Mathf.Clamp(newZoom.y, minZoom, maxZoom);
+        }*/
 
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * movementTime);
-            cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, newZoom, Time.deltaTime * movementTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * movementTime);
+        cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, newZoom, Time.deltaTime * movementTime);
     }
 }

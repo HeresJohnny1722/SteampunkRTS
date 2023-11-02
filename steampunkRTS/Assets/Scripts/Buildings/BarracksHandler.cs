@@ -28,9 +28,9 @@ public class BarracksHandler : MonoBehaviour
     [SerializeField]
     private List<UnitScriptableObject> unitsToTrain = new List<UnitScriptableObject>();
 
-    [SerializeField] private List<Button> buttonPrefabs = new List<Button>();
-    [SerializeField] private Transform layoutGroup = null;
-    private List<Button> buttonsInstantiated = new List<Button>();
+    //[SerializeField] private List<Button> buttonPrefabs = new List<Button>();
+    //[SerializeField] private Transform layoutGroup = null;
+    //private List<Button> buttonsInstantiated = new List<Button>();
 
     private void Start()
     {
@@ -49,6 +49,7 @@ public class BarracksHandler : MonoBehaviour
 
     public void spawnTroop(UnitScriptableObject unit)
     {
+        Debug.Log("Spawing a troop");
         //unitSpawnPoint = selections.selectedBuilding.transform;
         unitSpawnPoint = selections.selectedBuilding.GetChild(1).transform;
         unitMovePoint = selections.selectedBuilding.GetChild(2).transform;
