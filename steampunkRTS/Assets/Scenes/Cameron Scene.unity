@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571337, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -474,15 +474,15 @@ MonoBehaviour:
   screenEdgeWidth: 10
   minZoom: 25
   maxZoom: 75
-  normalSpeed: 1
+  normalSpeed: 0.5
   fastSpeed: 1
-  normalKeyboardSpeed: 1
+  normalKeyboardSpeed: 0.5
   fastKeyboardSpeed: 1
   movementMouseSpeed: 1
   movementKeyboardSpeed: 1
   movementTime: 1
   rotationAmount: 1
-  zoomAmount: {x: 0, y: -3, z: 3}
+  zoomAmount: {x: 0, y: -2, z: 2}
   newPosition: {x: 0, y: 0, z: 0}
   newRotation: {x: 0, y: 0, z: 0, w: 0}
   newZoom: {x: 0, y: 0, z: 0}
