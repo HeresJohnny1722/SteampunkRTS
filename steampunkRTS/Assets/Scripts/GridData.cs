@@ -34,6 +34,17 @@ public class GridData : MonoBehaviour
         }
         return returnVal;
     }
+
+    public bool CanPlaceObjectAt(Vector3Int gridPosition, Vector2Int objectSize)
+    {
+        List<Vector3Int> positionToOccupy = CalculatePositions(gridPosition, objectSize);
+        foreach ( var pos in positionToOccupy)
+        {
+            if (placedObjects.ContainsKey(pos))
+                return false;
+        }
+        return true;
+    }
 }
 
 public class PlacementData
