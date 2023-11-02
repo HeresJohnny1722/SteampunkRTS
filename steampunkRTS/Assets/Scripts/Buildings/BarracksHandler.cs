@@ -49,6 +49,7 @@ public class BarracksHandler : MonoBehaviour
 
     public void spawnTroop(UnitScriptableObject unit)
     {
+        Debug.Log("Spawing a troop");
         //unitSpawnPoint = selections.selectedBuilding.transform;
         unitSpawnPoint = selections.selectedBuilding.GetChild(1).transform;
         unitMovePoint = selections.selectedBuilding.GetChild(2).transform;
