@@ -418,8 +418,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182508524}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 75, z: -75}
+  m_LocalRotation: {x: 0.38268346, y: -0, z: -0, w: 0.9238796}
+  m_LocalPosition: {x: 0, y: 51.299988, z: -51.148125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1016,20 +1016,7 @@ MonoBehaviour:
   unitsSelected: []
   buildingsList: []
   selectedBuilding: {fileID: 0}
-  barracksHandlerGameobject: {fileID: 2103712573}
-  friendlyUnit:
-    serializedVersion: 2
-    m_Bits: 512
-  enemyUnit:
-    serializedVersion: 2
-    m_Bits: 1024
-  Building:
-    serializedVersion: 2
-    m_Bits: 2048
-  ground:
-    serializedVersion: 2
-    m_Bits: 128
-  spacing: 5
+  barraksHandler: {fileID: 2103712574}
   groundMarker: {fileID: 1806481431}
 --- !u!114 &888438127
 MonoBehaviour:
@@ -2217,7 +2204,7 @@ MonoBehaviour:
   movementKeyboardSpeed: 0
   movementTime: 5
   rotationAmount: 1
-  zoomAmount: {x: 0, y: -3, z: 3}
+  zoomAmount: {x: 0, y: -2, z: 2}
   newPosition: {x: 0, y: 0, z: 0}
   newRotation: {x: 0, y: 0, z: 0, w: 0}
   newZoom: {x: 0, y: 0, z: 0}
@@ -2296,7 +2283,7 @@ PrefabInstance:
     - target: {fileID: 1655334563407360015, guid: 0d71c4f2a6cef804bb653ac780b31001,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.69
+      value: -3.627
       objectReference: {fileID: 0}
     - target: {fileID: 1655334563407360015, guid: 0d71c4f2a6cef804bb653ac780b31001,
         type: 3}
@@ -2333,6 +2320,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3282271152514067641, guid: 0d71c4f2a6cef804bb653ac780b31001,
+        type: 3}
+      propertyPath: _unitGizmoSize.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282271152514067641, guid: 0d71c4f2a6cef804bb653ac780b31001,
+        type: 3}
+      propertyPath: _unitGizmoSize.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282271152514067641, guid: 0d71c4f2a6cef804bb653ac780b31001,
+        type: 3}
+      propertyPath: _unitGizmoSize.z
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 5434000499029843730, guid: 0d71c4f2a6cef804bb653ac780b31001,
         type: 3}
       propertyPath: _noise
@@ -2346,7 +2348,7 @@ PrefabInstance:
     - target: {fileID: 5434000499029843730, guid: 0d71c4f2a6cef804bb653ac780b31001,
         type: 3}
       propertyPath: _amount
-      value: 16
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5434000499029843730, guid: 0d71c4f2a6cef804bb653ac780b31001,
         type: 3}
@@ -2355,8 +2357,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5434000499029843730, guid: 0d71c4f2a6cef804bb653ac780b31001,
         type: 3}
+      propertyPath: _nthOffset
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434000499029843730, guid: 0d71c4f2a6cef804bb653ac780b31001,
+        type: 3}
       propertyPath: _ringOffset
-      value: 0.29
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 7820236422596102555, guid: 0d71c4f2a6cef804bb653ac780b31001,
         type: 3}
@@ -2366,7 +2373,7 @@ PrefabInstance:
     - target: {fileID: 7820236422596102555, guid: 0d71c4f2a6cef804bb653ac780b31001,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

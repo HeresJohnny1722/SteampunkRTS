@@ -7,9 +7,6 @@ using UnityEngine.AI;
 public class Selections : MonoBehaviour
 {
 
-
-    //public RadialFormation radialFormation;
-
     public List<GameObject> unitList = new List<GameObject>();
     public List<GameObject> unitsSelected = new List<GameObject>();
 
@@ -19,21 +16,12 @@ public class Selections : MonoBehaviour
     public List<GameObject> buildingsList = new List<GameObject>();
     public Transform selectedBuilding = null;
 
-    private BarracksHandler barraksHandler;
-    public GameObject barracksHandlerGameobject;
+    [SerializeField] private BarracksHandler barraksHandler;
 
     private NavMeshAgent myAgent;
     private Camera myCam;
 
-    public LayerMask friendlyUnit;
-    public LayerMask enemyUnit;
-    public LayerMask Building;
-    public LayerMask ground;
-
-    public int spacing = 1;
-    public GameObject groundMarker;
-
-    private GameObject leader;
+    [SerializeField] private GameObject groundMarker;
 
     private FormationBase _formation;
 
@@ -61,47 +49,16 @@ public class Selections : MonoBehaviour
             for (var i = 0; i < unitsSelected.Count; i++)
             {
                 myAgent = unitsSelected[i].GetComponent<NavMeshAgent>();
-                myAgent.SetDestination(_points[i] + moveToPosition);
-                //unitsSelected[i].transform.position = Vector3.MoveTowards(unitsSelected[i].transform.position, transform.position + _points[i], _unitSpeed * Time.deltaTime);
+                myAgent.SetDestination(_points[i] + moveToPosition + new Vector3(-0.5f, 0, -0.5f));
+                
             }
-            /*
-
-            radialFormation = GetComponent<RadialFormation>();
-
-            // Calculate the number of units in the formation
-            int formationSize = Mathf.CeilToInt(Mathf.Sqrt(unitsSelected.Count));
-
-            if (radialFormation != null)
-            {
-
-
-                // Calculate the formation
-                List<Vector3> formation = new List<Vector3>(radialFormation.EvaluatePoints());
-
-                if (formation.Count >= unitsSelected.Count)
-                {
-                    for (int i = 0; i < unitsSelected.Count; i++)
-                    {
-                        myAgent = unitsSelected[i].GetComponent<NavMeshAgent>();
-                        myAgent.SetDestination(moveToPosition + formation[i]);
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning("Not enough positions in the radial formation for all selected units.");
-                }
-            }
-            else
-            {
-                Debug.LogError("The 'radialFormation' variable is not set. Make sure to assign a RadialFormation component in the Inspector.");
-            }
-            */
+          
         }
     }
 
     void Awake()
     {
-        barraksHandler = barracksHandlerGameobject.GetComponent<BarracksHandler>();
+        
 
         if (_instance != null && _instance != this)
         {
