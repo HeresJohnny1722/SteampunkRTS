@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -472,6 +472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 819431095}
   screenEdgeWidth: 10
+  minZoom: 1
+  maxZoom: 10
   normalSpeed: 1
   fastSpeed: 1
   normalKeyboardSpeed: 1
@@ -480,12 +482,10 @@ MonoBehaviour:
   movementKeyboardSpeed: 1
   movementTime: 1
   rotationAmount: 1
-  zoomAmount: {x: 0, y: -3, z: 0}
+  zoomAmount: {x: 0, y: -3, z: 3}
   newPosition: {x: 0, y: 0, z: 0}
   newRotation: {x: 0, y: 0, z: 0, w: 0}
   newZoom: {x: 0, y: 0, z: 0}
-  minZoom: 1
-  maxZoom: 10
   dragStartPosition: {x: 0, y: 0, z: 0}
   dragCurrentPosition: {x: 0, y: 0, z: 0}
   rotateStartPosition: {x: 0, y: 0, z: 0}
@@ -609,8 +609,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 273.15042}
+  m_SizeDelta: {x: 0, y: 546.3008}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &760855680
 MonoBehaviour:

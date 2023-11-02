@@ -90,8 +90,6 @@ public class UnitClick : MonoBehaviour
                 else
                 {
                     Selections.Instance.moveUnits(hit.point);
-                    setGroundMarker(groundMarker, hit.point);
-                    Debug.Log("Moving units!");
                 }
 
             }
