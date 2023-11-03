@@ -5,11 +5,9 @@ using TMPro;
 
 public class TestUI : MonoBehaviour
 {
-    public TextMeshProUGUI text;
 
     public void testUi()
     {
-        text.text = "Changed text";
         Debug.Log("hello");
     }
     
